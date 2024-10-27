@@ -2,15 +2,15 @@
 
 ## A simple and short 2D platformer on C++ and SFML
 
-#### Music by timbeek.com
+### Music by timbeek.com
 
-#### The IDE that used in this project: Code::Block (https://www.codeblocks.org/)
+### The IDE that used in this project: Code::Block (https://www.codeblocks.org/)
 
-#### Third-party libraries that must have for this:
+### Third-party libraries that must have for this:
 
 SFML: **https://www.sfml-dev.org/index.php** ;
 
-#### What we already have:
+### What we already have:
 
 Main Menu;
 
@@ -24,7 +24,7 @@ Jams;
 
 Sounds and Music;
 
-#### How to build:
+### How to build:
 
 To build this
 
@@ -46,7 +46,7 @@ To build this
 
 }
 
-#### How to launch:
+### How to launch:
 
 To launch this
 
@@ -62,9 +62,9 @@ To launch this
 
 }
 
-##### Profit! 👌🏼 Have a nice play! 😉
+#### Profit! 👌🏼 Have a nice play! 😉
 
-#### Additional software:
+### Additional software:
 
 InkScape: **https://inkscape.org/ru/release/inkscape-1.4/** ;
 
