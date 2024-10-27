@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Vasya-prepare-jam-for-winter" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/Vasya-prepare-jam-for-winter" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="../../Загрузки/SFML-2.6.1/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio" />
+					<Add directory="../../Загрузки/SFML-2.6.1/lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/AlResource.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/Export.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/InputSoundFile.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/Listener.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/Music.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/OutputSoundFile.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/Sound.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundBuffer.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundBufferRecorder.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundFileFactory.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundFileReader.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundFileWriter.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundRecorder.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundSource.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Audio/SoundStream.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Config.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/GpuPreference.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/BlendMode.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/CircleShape.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Color.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/ConvexShape.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Drawable.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Export.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Font.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Glsl.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Glyph.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Image.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/PrimitiveType.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Rect.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/RectangleShape.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/RenderStates.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/RenderTarget.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/RenderTexture.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/RenderWindow.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Shader.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Shape.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Sprite.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Text.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Texture.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Transform.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Transformable.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/Vertex.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/VertexArray.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/VertexBuffer.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Graphics/View.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Main.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/Export.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/Ftp.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/Http.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/IpAddress.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/Packet.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/Socket.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/SocketHandle.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/SocketSelector.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/TcpListener.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/TcpSocket.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Network/UdpSocket.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/OpenGL.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Clock.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Err.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Export.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/FileInputStream.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/InputStream.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Lock.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/MemoryInputStream.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Mutex.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/NativeActivity.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/NonCopyable.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Sleep.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/String.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Thread.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/ThreadLocal.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/ThreadLocalPtr.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Time.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Utf.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Vector2.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/System/Vector3.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Clipboard.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Context.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/ContextSettings.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Cursor.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Event.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Export.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/GlResource.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Joystick.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Keyboard.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Mouse.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Sensor.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Touch.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/VideoMode.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Vulkan.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/Window.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/WindowBase.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/WindowHandle.hpp" />
+		<Unit filename="../../Загрузки/SFML-2.6.1/include/SFML/Window/WindowStyle.hpp" />
+		<Unit filename="include/MainMenu.hpp" />
+		<Unit filename="include/backTexture.hpp" />
+		<Unit filename="include/background.hpp" />
+		<Unit filename="include/cloud.hpp" />
+		<Unit filename="include/game.hpp" />
+		<Unit filename="include/ground.hpp" />
+		<Unit filename="include/jam.hpp" />
+		<Unit filename="include/level.hpp" />
+		<Unit filename="include/player.hpp" />
+		<Unit filename="png/back/cloud.png" />
+		<Unit filename="png/back/house.png" />
+		<Unit filename="png/back/sun.png" />
+		<Unit filename="png/back/tree.png" />
+		<Unit filename="png/background.png" />
+		<Unit filename="png/ground.png" />
+		<Unit filename="png/ground_top.png" />
+		<Unit filename="png/jam.png" />
+		<Unit filename="png/menu/hover_button.png" />
+		<Unit filename="png/menu/label.png" />
+		<Unit filename="png/menu/play.png" />
+		<Unit filename="png/player/fall.png" />
+		<Unit filename="png/player/idle.png" />
+		<Unit filename="png/player/jump.png" />
+		<Unit filename="png/player/walk1.png" />
+		<Unit filename="png/player/walk2.png" />
+		<Unit filename="src/MainMenu.cpp" />
+		<Unit filename="src/backTexture.cpp" />
+		<Unit filename="src/background.cpp" />
+		<Unit filename="src/cloud.cpp" />
+		<Unit filename="src/game.cpp" />
+		<Unit filename="src/ground.cpp" />
+		<Unit filename="src/jam.cpp" />
+		<Unit filename="src/level.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/player.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
