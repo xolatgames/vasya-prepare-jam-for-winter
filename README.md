@@ -8,21 +8,21 @@
 
 #### Third-party libraries that must have for this:
 
-SFML: **https://www.sfml-dev.org/index.php** ;
+  SFML: **https://www.sfml-dev.org/index.php** ;
 
 #### What we already have:
 
-Main Menu;
+  Main Menu ;
 
-Background with running clouds and sun;
+  Background with running clouds and sun ;
 
-The walking and jumping character;
+  The walking and jumping character ;
 
-Grounds;
+  Grounds ;
 
-Jams;
+  Jams ;
 
-Sounds and Music;
+  Sounds and Music ;
 
 #### How to build:
 
@@ -66,6 +66,6 @@ To launch this
 
 #### Additional software:
 
-InkScape: **https://inkscape.org/ru/release/inkscape-1.4/** ;
+  InkScape: **https://inkscape.org/ru/release/inkscape-1.4/** ;
 
-The soft where I made sounds: **https://lmms.io/** ;
+  The soft where I made sounds: **https://lmms.io/** ;
