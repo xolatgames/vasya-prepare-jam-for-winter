@@ -13,12 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="../../Загрузки/SFML-2.6.1/include" />
+					<Add directory="../../../Загрузки/SFML-2.6.1/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add option="-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio" />
-					<Add directory="../../Загрузки/SFML-2.6.1/lib" />
+					<Add directory="../../../Загрузки/SFML-2.6.1/lib" />
 				</Linker>
 			</Target>
 		</Build>

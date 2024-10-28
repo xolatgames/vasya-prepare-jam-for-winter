@@ -138,6 +138,11 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
             return scene;
         }
 
+        for ( unsigned int i=0; i < (*level).jams.size(); i++ )
+        {
+            (*level).jams.at(i)->Update();
+        }
+
         cameraX = (*level).player->Camera();
     }
 

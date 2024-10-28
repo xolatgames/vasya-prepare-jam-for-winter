@@ -35,6 +35,8 @@ public:
     sf::Texture jumpTexture;
     sf::Sprite playerSprite;
 
+    sf::FloatRect playerMask;
+
     sf::SoundBuffer walkBuffer;
     sf::SoundBuffer jumpBuffer;
     sf::SoundBuffer jamBuffer;

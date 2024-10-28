@@ -13,6 +13,15 @@ Jam::Jam(float jamX, float jamY)
     jamSprite.setScale(sf::Vector2f(0.25, 0.25));
 }
 
+void Jam::Update()
+{
+    jamMask = jamSprite.getGlobalBounds();
+    jamMask.left += 24;
+    jamMask.width -= 40;
+    jamMask.top += 24;
+    jamMask.height -= 40;
+}
+
 void Jam::Draw(sf::RenderWindow &window, float cameraX)
 {
     jamSprite.setPosition( jamSprite.getPosition() - sf::Vector2f(cameraX, 0) );

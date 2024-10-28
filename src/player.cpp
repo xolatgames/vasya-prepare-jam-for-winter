@@ -45,6 +45,12 @@ Player::Player(float playerX, float playerY)
 
 void Player::Update(vector<Ground*> grounds)
 {
+    playerMask = playerSprite.getGlobalBounds();
+    playerMask.left += 16;
+    playerMask.width -= 32;
+    playerMask.top += 16;
+    playerMask.height -= 16;
+
     if (speedX < -0.2)
     {
         speedX += 0.1;
@@ -82,11 +88,8 @@ void Player::Update(vector<Ground*> grounds)
     {
         Ground *ground = grounds.at(i);
 
-        sf::FloatRect playerRect = playerSprite.getGlobalBounds();
-        playerRect.left += 16;
-        playerRect.width -= 32;
-        playerRect.top += speedY + 16;
-        playerRect.height -= 16;
+        sf::FloatRect playerRect = playerMask;
+        playerRect.top += speedY;
 
         if (playerRect.intersects(ground->groundSprite.getGlobalBounds()))
         {
@@ -114,11 +117,8 @@ void Player::Update(vector<Ground*> grounds)
     {
         Ground *ground = grounds.at(i);
 
-        sf::FloatRect playerRect = playerSprite.getGlobalBounds();
-        playerRect.left += speedX + 16;
-        playerRect.width -= 32;
-        playerRect.top += 16;
-        playerRect.height -= 16;
+        sf::FloatRect playerRect = playerMask;
+        playerRect.left += speedX;
 
         if (playerRect.intersects(ground->groundSprite.getGlobalBounds()))
         {
@@ -260,13 +260,7 @@ int Player::PickUpJam(vector<Jam*> jams)
     {
         Jam *jam = jams.at(i);
 
-        sf::FloatRect playerRect = playerSprite.getGlobalBounds();
-        playerRect.left += 30;
-        playerRect.width -= 60;
-        playerRect.top += 32;
-        playerRect.height -= 32;
-
-        if (playerRect.intersects(jam->jamSprite.getGlobalBounds()))
+        if (playerMask.intersects(jam->jamMask))
         {
             jamSound.play();
             return i;
