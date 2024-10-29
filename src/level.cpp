@@ -50,6 +50,32 @@ Level::Level(string tileMap[], string backMap[], int sizeX, int sizeY)
                 jams.push_back(new Jam(x * 64, y * 64 + 64));
             }
         }
+
+    for ( int x=-10; x < 0; x++ )
+        for ( int y=0; y < sizeY; y++ )
+        {
+            if (y == 0)
+            {
+                grounds.push_back(new Ground(Ground::Top, x * 64, y * 64 + 64));
+            }
+            else
+            {
+                grounds.push_back(new Ground(Ground::Center, x * 64, y * 64 + 64));
+            }
+        }
+
+    for ( int x=sizeX; x <= sizeX+10; x++ )
+        for ( int y=0; y < sizeY; y++ )
+        {
+            if (y == 0)
+            {
+                grounds.push_back(new Ground(Ground::Top, x * 64, y * 64 + 64));
+            }
+            else
+            {
+                grounds.push_back(new Ground(Ground::Center, x * 64, y * 64 + 64));
+            }
+        }
 }
 
 void Level::UI(sf::RenderWindow &window)
