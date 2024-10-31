@@ -140,13 +140,13 @@
 1730042034 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/backTexture.hpp
 	<SFML/Graphics.hpp>
 
-1730042035 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/cloud.cpp
+1730314555 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/cloud.cpp
 	<SFML/Graphics.hpp>
 	<random>
 	<ctime>
 	"../include/cloud.hpp"
 
-1730117832 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/game.cpp
+1730311953 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/game.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -182,7 +182,7 @@
 1730117739 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/jam.hpp
 	<SFML/Graphics.hpp>
 
-1730042034 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/level.hpp
+1730297221 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/level.hpp
 	<SFML/Graphics.hpp>
 	<vector>
 	"background.hpp"
@@ -190,6 +190,9 @@
 	"player.hpp"
 	"ground.hpp"
 	"jam.hpp"
+	"enemy/turtle.hpp"
+	"enemy/rabbit.hpp"
+	"enemy/bird.hpp"
 
 1730117209 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/player.hpp
 	<SFML/Graphics.hpp>
@@ -209,7 +212,7 @@
 	<SFML/Graphics.hpp>
 	"../include/jam.hpp"
 
-1730207256 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/level.cpp
+1730298046 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/level.cpp
 	<SFML/Graphics.hpp>
 	<vector>
 	"../include/level.hpp"
@@ -219,7 +222,7 @@
 	"../include/ground.hpp"
 	"../include/jam.hpp"
 
-1730042035 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/main.cpp
+1730313586 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/main.cpp
 	<SFML/Graphics.hpp>
 	"../include/game.hpp"
 
@@ -235,4 +238,43 @@
 	"../include/player.hpp"
 	"../include/ground.hpp"
 	"../include/jam.hpp"
+
+1730311493 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/turtle.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../player.hpp"
+	"../ground.hpp"
+
+1730311499 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/rabbit.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../player.hpp"
+	"../ground.hpp"
+
+1730311077 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/bird.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"../../include/player.hpp"
+
+1730311674 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/turtle.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../../include/enemy/turtle.hpp"
+	"../../include/ground.hpp"
+
+1730312209 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/rabbit.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../../include/enemy/rabbit.hpp"
+	"../../include/ground.hpp"
+
+1730311662 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/bird.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"../../include/enemy/bird.hpp"
+	"../../include/player.hpp"
 

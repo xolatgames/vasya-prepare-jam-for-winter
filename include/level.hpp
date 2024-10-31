@@ -8,6 +8,9 @@
 #include "player.hpp"
 #include "ground.hpp"
 #include "jam.hpp"
+#include "enemy/turtle.hpp"
+#include "enemy/rabbit.hpp"
+#include "enemy/bird.hpp"
 
 using namespace std;
 
@@ -15,6 +18,9 @@ class Background;
 class Player;
 class Ground;
 class Jam;
+class Turtle;
+class Rabbit;
+class Bird;
 
 class Level
 {
@@ -29,6 +35,9 @@ public:
 
     vector<Ground*> grounds;
     vector<Jam*> jams;
+    vector<Turtle*> turtles;
+    vector<Rabbit*> rabbits;
+    vector<Bird*> birds;
 
     void UI(sf::RenderWindow &window);
 

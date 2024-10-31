@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="turtle1.svg"
+   inkscape:export-filename="../../png/enemy/turtle1.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.9197531"
+     inkscape:cx="19.261417"
+     inkscape:cy="57.911811"
+     inkscape:window-width="1440"
+     inkscape:window-height="828"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1.0583333"
+       spacingy="1.0583333"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167"
+       d="m 12.519084,16.933333 -1.058333,-1.058334 c 0,0 4.233333,0 4.233333,-1.058333 0,-1.058333 -4.233333,-1.058333 -4.233333,-1.058333 H 0.87741843 c 0,0 3.17499997,1.058333 3.17499997,2.116666 0,1.058334 -1.058334,1.058334 -1.058334,1.058334 h 2.116667 l 1.058333,-1.058334 h 3.1749999 l 1.0583337,1.058334 z"
+       id="path1"
+       sodipodi:nodetypes="ccsccscccccc" />
+    <circle
+       style="fill:#000000;stroke:#000000;stroke-width:0.529167"
+       id="path2"
+       cx="-13.048251"
+       cy="14.287499"
+       r="0.52916664"
+       transform="scale(-1,1)" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167"
+       d="m 13.577417,13.758333 1.058334,-2.116667 -2.116667,1.058333 1.058333,-2.116666 -3.174999,3.175 z"
+       id="path3" />
+    <path
+       id="path5"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167"
+       d="M 7.2274174,4.2333333 C 10.149922,4.2333331 11.460751,8.6084934 11.460751,12.7 A 4.2333331,2.1166666 0 0 1 7.2274174,14.816667 4.2333331,2.1166666 0 0 1 2.9940844,12.7 c 0,-4.0915069 1.310828,-8.4666666 4.233333,-8.4666667 z" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.529167"
+       d="m 8.285751,6.3499998 c 0,0 1.058333,3.1749998 1.0583331,5.2916662 l 2e-7,3.175"
+       id="path7"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.529167"
+       d="m 6.1690844,6.3499998 c 0,0 -1.058333,3.1749998 -1.058333,5.2916662 v 3.175"
+       id="path8"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.529167"
+       d="m 11.460751,9.525 c 0,0 -1.058333,2.116666 -4.2333333,2.116666 C 4.0524174,11.641666 2.9940844,9.525 2.9940844,9.525"
+       id="path9"
+       sodipodi:nodetypes="czc" />
+    <ellipse
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167"
+       id="path6"
+       cx="-7.2274179"
+       cy="5.8208332"
+       rx="2.1166666"
+       ry="1.5875"
+       transform="scale(-1,1)" />
+  </g>
+</svg>

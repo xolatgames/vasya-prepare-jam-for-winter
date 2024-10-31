@@ -49,6 +49,18 @@ Level::Level(string tileMap[], string backMap[], int sizeX, int sizeY)
             {
                 jams.push_back(new Jam(x * 64, y * 64 + 64));
             }
+            else if ( tileMap[tile] == "Tu" )
+            {
+                turtles.push_back(new Turtle(x * 64, y * 64 + 64));
+            }
+            else if ( tileMap[tile] == "R" )
+            {
+                rabbits.push_back(new Rabbit(x * 64, y * 64 + 64));
+            }
+            else if ( tileMap[tile] == "B" )
+            {
+                birds.push_back(new Bird(x * 64, y * 64 + 64));
+            }
         }
 
     for ( int x=-10; x < 0; x++ )

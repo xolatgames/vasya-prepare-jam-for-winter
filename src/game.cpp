@@ -35,6 +35,11 @@ Game::Game(sf::RenderWindow &window)
             }
         }
 
+        if (music.getStatus() == sf::Music::Stopped)
+        {
+            music.play();
+        }
+
         window.clear();
 
         int scene_to = Update(window, scene, menu, level);
@@ -62,10 +67,10 @@ Game::Game(sf::RenderWindow &window)
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "J", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "GT", "GT", "GT", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
+                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "B", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "J", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "GT", "GT", "GT",
-                        "0", "0", "0", "P", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "G", "G", "G",
+                        "0", "0", "0", "P", "0", "0", "Tu", "0", "0", "0", "0", "0", "0", "0", "0", "R", "0", "G", "G", "G",
                         "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "G", "G", "G",
                     };
 
@@ -142,6 +147,18 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
         {
             (*level).jams.at(i)->Update();
         }
+         for ( unsigned int i=0; i < (*level).turtles.size(); i++ )
+        {
+            (*level).turtles.at(i)->Update( (*level).player, (*level).grounds );
+        }
+         for ( unsigned int i=0; i < (*level).rabbits.size(); i++ )
+        {
+            (*level).rabbits.at(i)->Update( (*level).player, (*level).grounds );
+        }
+         for ( unsigned int i=0; i < (*level).birds.size(); i++ )
+        {
+            (*level).birds.at(i)->Update( (*level).player );
+        }
 
         cameraX = (*level).player->Camera();
     }
@@ -173,6 +190,18 @@ void Game::Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *leve
         for ( unsigned int i=0; i < (*level).jams.size(); i++ )
         {
             (*level).jams.at(i)->Draw(window, cameraX);
+        }
+        for ( unsigned int i=0; i < (*level).turtles.size(); i++ )
+        {
+            (*level).turtles.at(i)->Draw(window, cameraX);
+        }
+        for ( unsigned int i=0; i < (*level).rabbits.size(); i++ )
+        {
+            (*level).rabbits.at(i)->Draw(window, cameraX);
+        }
+        for ( unsigned int i=0; i < (*level).birds.size(); i++ )
+        {
+            (*level).birds.at(i)->Draw(window, cameraX);
         }
 
         (*level).player->Draw(window, cameraX);

@@ -8,64 +8,67 @@
 
 #### Third-party libraries that must have for this:
 
-  SFML: **https://www.sfml-dev.org/index.php** ;
+  SFML : **https://www.sfml-dev.org/index.php** ;
 
-#### What we already have:
+#### Roadmap[] =
 
-  Main Menu ;
+    {
 
-  Background with running clouds and sun ;
+       ✔️ Main menu 📋 ,
 
-  The walking and jumping character ;
+       ✔️ Beautiful background ⛅ ,
 
-  Grounds ;
+       ✔️ The walking and jumping character 🚶🏻 ,
 
-  Jams ;
+       ✔️ Sounds 🎵 and music 🎶 ,
 
-  Sounds and Music ;
+       ✔️ Turtles 🐢 , Rabbits 🐇 and Birds 🐦 as enemies ,
 
-#### How to build:
+       ❌ Changing sounds and music volume ,
 
-To build this
+       ❌ Create 3 levels at least 🕹️ ,
 
-{
+    } ;
 
-    Install Code::Blocks IDE -> **https://www.codeblocks.org/** ;
+#### How to build[] =
 
-    Download SFML library -> **https://www.sfml-dev.org/download/sfml/2.6.1/** ;
+    {
 
-    Open this project in Code::Blocks ( The project is located in **Vasya-prepare-jam-for-winter.cbp** file ) ;
+      Install Code::Blocks IDE -> **https://www.codeblocks.org/** ;
 
-    Do things in this instruction for setting up project -> **https://www.sfml-dev.org/tutorials/2.6/start-cb.php** *Yeap! This hard for beginners!* ;
+      Download SFML library -> **https://www.sfml-dev.org/download/sfml/2.6.1/** ;
 
-    Open **main.cpp** in opened project ;
+      Open this project in Code::Blocks ( The project is located in **Vasya-prepare-jam-for-winter.cbp** file ) ;
 
-    Click on the gear in somewhere at the top menus (**Build**), or just press **Ctrl + F9** ;
+      Do things in this instruction for setting up project -> **https://www.sfml-dev.org/tutorials/2.6/start-cb.php** *Yeap! This hard for beginners!* ;
 
-    Got it!
+      Open **main.cpp** in opened project ;
 
-}
+      Click on the gear in somewhere at the top menus (**Build**), or just press **Ctrl + F9** ;
 
-#### How to launch:
+      Got it!
 
-To launch this
+    } ;
 
-{
+#### How to launch[] =
 
-    Open your file manager ;
 
-    Go to the project folder in your file manager ;
+    {
 
-    Then locate to **"/bin/Release"** ;
+      Open your file manager ;
 
-    And launch **Vasya-prepare-jam-for-winter** !
+      Go to the project folder in your file manager ;
 
-}
+      Then locate to **"/bin/Release"** ;
+
+      And launch **Vasya-prepare-jam-for-winter** !
+
+    } ;
 
 **Profit! 👌🏼 Have a nice play! 😉**
 
 #### Additional software:
 
-  InkScape: **https://inkscape.org/ru/release/inkscape-1.4/** ;
+  InkScape : **https://inkscape.org/ru/release/inkscape-1.4/** ;
 
-  The soft where I made sounds: **https://lmms.io/** ;
+  The soft where I made sounds : **https://lmms.io/** ;

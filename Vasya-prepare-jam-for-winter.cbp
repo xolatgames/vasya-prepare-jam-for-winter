@@ -13,12 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="../../../Загрузки/SFML-2.6.1/include" />
+					<Add directory="/home/ilyuha/Загрузки/SFML-2.6.1 Linux/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add option="-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio" />
-					<Add directory="../../../Загрузки/SFML-2.6.1/lib" />
+					<Add directory="/home/ilyuha/Загрузки/SFML-2.6.1 Linux/lib" />
 				</Linker>
 			</Target>
 		</Build>
@@ -129,6 +129,9 @@
 		<Unit filename="include/backTexture.hpp" />
 		<Unit filename="include/background.hpp" />
 		<Unit filename="include/cloud.hpp" />
+		<Unit filename="include/enemy/bird.hpp" />
+		<Unit filename="include/enemy/rabbit.hpp" />
+		<Unit filename="include/enemy/turtle.hpp" />
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/ground.hpp" />
 		<Unit filename="include/jam.hpp" />
@@ -154,6 +157,9 @@
 		<Unit filename="src/backTexture.cpp" />
 		<Unit filename="src/background.cpp" />
 		<Unit filename="src/cloud.cpp" />
+		<Unit filename="src/enemy/bird.cpp" />
+		<Unit filename="src/enemy/rabbit.cpp" />
+		<Unit filename="src/enemy/turtle.cpp" />
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/ground.cpp" />
 		<Unit filename="src/jam.cpp" />
