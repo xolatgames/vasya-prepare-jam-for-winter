@@ -4,17 +4,17 @@
 #include "../../include/enemy/rabbit.hpp"
 #include "../../include/ground.hpp"
 
-Rabbit::Rabbit(float rabbitX, float rabbitY)
+Rabbit::Rabbit(float x, float y)
 {
-    rabbit1Image.loadFromFile("png/enemy/rabbit1.png");
-    rabbit2Image.loadFromFile("png/enemy/rabbit2.png");
-    rabbit1Texture.loadFromImage(rabbit1Image);
-    rabbit2Texture.loadFromImage(rabbit2Image);
-    rabbitSprite.setTexture(rabbit1Texture);
-    rabbitSprite.setOrigin(sf::Vector2f(32, 32));
-    rabbitSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-    rabbitSprite.setPosition(sf::Vector2f(rabbitX, rabbitY));
-    rabbitSprite.setScale(sf::Vector2f(-1, 1));
+    idleImage.loadFromFile("png/enemy/rabbit1.png");
+    jumpImage.loadFromFile("png/enemy/rabbit2.png");
+    idleTexture.loadFromImage(idleImage);
+    jumpTexture.loadFromImage(jumpImage);
+    sprite.setTexture(idleTexture);
+    sprite.setOrigin(sf::Vector2f(32, 32));
+    sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+    sprite.setPosition(sf::Vector2f(x, y));
+    sprite.setScale(sf::Vector2f(-1, 1));
 
     jumpBuffer.loadFromFile("sound/jump.wav");
     jumpSound.setBuffer(jumpBuffer);
@@ -26,13 +26,13 @@ Rabbit::Rabbit(float rabbitX, float rabbitY)
 
 void Rabbit::Update(Player* player, vector<Ground*> grounds)
 {
-    rabbitMask = rabbitSprite.getGlobalBounds();
-    rabbitMask.left += 16;
-    rabbitMask.width -= 32;
-    rabbitMask.top += 16;
-    rabbitMask.height -= 16;
+    mask = sprite.getGlobalBounds();
+    mask.left += 16;
+    mask.width -= 32;
+    mask.top += 16;
+    mask.height -= 16;
 
-    distance_calculation = player->playerSprite.getPosition() - rabbitSprite.getPosition();;
+    distance_calculation = player->sprite.getPosition() - sprite.getPosition();;
     if (distance_calculation.x < 0) {distance_calculation.x = -distance_calculation.x;}
     if (distance_calculation.y < 0) {distance_calculation.y = -distance_calculation.y;}
 
@@ -45,25 +45,25 @@ void Rabbit::Update(Player* player, vector<Ground*> grounds)
         distance = distance_calculation.y;
     }
 
-    speedY += 0.2;
+    speedY += gravityForce;
 
-    if (speedY > 8)
+    if (speedY > maxFallSpeed)
     {
-        speedY = 8;
+        speedY = maxFallSpeed;
     }
 
     for ( unsigned int i=0; i < grounds.size(); i++ )
     {
         Ground *ground = grounds.at(i);
 
-        sf::FloatRect rabbitRect = rabbitMask;
-        rabbitRect.top += speedY;
+        sf::FloatRect rect = mask;
+        rect.top += speedY;
 
-        if (rabbitRect.intersects(ground->groundSprite.getGlobalBounds()))
+        if (rect.intersects(ground->sprite.getGlobalBounds()))
         {
             if (speedY > 0)
             {
-                rabbitSprite.setPosition(sf::Vector2f(rabbitSprite.getPosition().x, ground->groundSprite.getGlobalBounds().top - 32));
+                sprite.setPosition(sf::Vector2f(sprite.getPosition().x, ground->sprite.getGlobalBounds().top - 32));
                 speedX = 0;
                 speedY = 0;
 
@@ -79,16 +79,16 @@ void Rabbit::Update(Player* player, vector<Ground*> grounds)
         }
     }
 
-    rabbitSprite.move(sf::Vector2f(0, speedY));
+    sprite.move(sf::Vector2f(0, speedY));
 
     for ( unsigned int i=0; i < grounds.size(); i++ )
     {
         Ground *ground = grounds.at(i);
 
-        sf::FloatRect rabbitRect = rabbitMask;
-        rabbitRect.left += speedX;
+        sf::FloatRect rect = mask;
+        rect.left += speedX;
 
-        if (rabbitRect.intersects(ground->groundSprite.getGlobalBounds()))
+        if (rect.intersects(ground->sprite.getGlobalBounds()))
         {
             speedX = -speedX;
 
@@ -109,7 +109,7 @@ void Rabbit::Update(Player* player, vector<Ground*> grounds)
         }
     }
 
-    rabbitSprite.move(sf::Vector2f(speedX, 0));
+    sprite.move(sf::Vector2f(speedX, 0));
 
     jump_delay -= 1;
     if (jump_delay == 0)
@@ -122,56 +122,60 @@ void Rabbit::Update(Player* player, vector<Ground*> grounds)
 
 void Rabbit::Hop()
 {
-    jumpSound.setVolume(80 - distance/1280*80);
     jumpSound.play();
 
     switch (side)
     {
         case Side::Right:
         {
-            speedX = 4;
+            speedX = jumpForceX;
         }
         break;
 
         case Side::Left:
         {
-            speedX = -4;
+            speedX = -jumpForceX;
         }
         break;
     }
 
-    speedY = -10;
+    speedY = -jumpForceY;
 }
 
 void Rabbit::ChangeAnimation()
 {
     if ( (speedX > 0)||(speedX < 0) )
     {
-        rabbitSprite.setTexture(rabbit2Texture);
+        sprite.setTexture(jumpTexture);
     }
     else
     {
-        rabbitSprite.setTexture(rabbit1Texture);
+        sprite.setTexture(idleTexture);
     }
 
     switch (side)
     {
         case Side::Right:
         {
-            rabbitSprite.setScale(sf::Vector2f(1, 1));
+            sprite.setScale(sf::Vector2f(1, 1));
         }
         break;
 
         case Side::Left:
         {
-            rabbitSprite.setScale(sf::Vector2f(-1, 1));
+            sprite.setScale(sf::Vector2f(-1, 1));
         }
         break;
     }
 }
 
+void Rabbit::SetSoundsVolume(float volume)
+{
+    jumpSound.setVolume( (maxSoundsVolume - distance / maxSoundsDistance * maxSoundsVolume) * volume / 100 );
+}
+
 void Rabbit::Draw(sf::RenderWindow &window, float cameraX)
 {
-    rabbitSprite.setPosition( rabbitSprite.getPosition() - sf::Vector2f(cameraX, 0) );
-    window.draw(rabbitSprite);
+    sprite.setPosition( sprite.getPosition() - sf::Vector2f(cameraX, 0) );
+    window.draw(sprite);
 }

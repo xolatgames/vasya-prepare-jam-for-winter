@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="2.771684"
-     inkscape:cx="104.08834"
-     inkscape:cy="203.4864"
+     inkscape:zoom="1.385842"
+     inkscape:cx="79.013336"
+     inkscape:cy="59.891387"
      inkscape:window-width="1440"
      inkscape:window-height="828"
      inkscape:window-x="0"
@@ -60,7 +60,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none;fill-opacity:0.5"
        id="rect1"
        width="33.866661"
        height="42.333336"
@@ -68,7 +68,7 @@
        y="21.166666"
        ry="8.4666662" />
     <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none;fill-opacity:0.5"
        id="rect2"
        width="25.4"
        height="8.4666662"
@@ -76,12 +76,12 @@
        y="12.7"
        ry="0" />
     <path
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
+       style="fill:#f2f2f2;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
        d="m 21.166668,8.4666664 -8.466669,8.4666666 c 0,0 4.233334,4.233333 8.466667,4.233333 4.233333,0 8.466667,-4.233333 12.7,-4.233333 4.233334,0 8.466664,4.233333 12.699997,4.233333 4.233334,0 8.466667,-4.233333 8.466667,-4.233333 L 46.566665,8.4666664 Z"
        id="path1"
        sodipodi:nodetypes="ccsssccc" />
     <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
+       style="fill:#f2f2f2;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
        id="rect3"
        width="25.4"
        height="4.2333331"
@@ -89,46 +89,46 @@
        y="4.2333331" />
     <path
        id="rect4"
-       style="fill:#ffffff;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
+       style="fill:#800000;stroke:#000000;stroke-width:2.11667;stroke-dasharray:none"
        d="M 25.4 33.866667 C 21.166671 33.866667 16.933333 38.1 16.933333 38.1 L 16.933333 55.033333 C 16.933333 59.723862 20.709472 63.5 25.4 63.5 L 42.333333 63.5 C 47.023862 63.5 50.8 59.723862 50.8 55.033333 L 50.8 33.866667 C 50.8 33.866667 42.333326 38.1 38.1 38.1 C 33.86667 38.1 29.63333 33.866667 25.4 33.866667 z " />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none;fill-opacity:0.5"
        id="path4"
        cx="23.283333"
        cy="48.683331"
        r="2.1166666" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none;fill-opacity:0.5"
        id="path5"
        cx="33.866665"
        cy="52.916664"
        r="2.1166666" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833333;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833333;stroke-dasharray:none;fill-opacity:0.5"
        id="path6"
        cx="44.450001"
        cy="48.683334"
        r="2.1166666" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none;fill-opacity:0.5"
        id="path7"
        cx="35.983334"
        cy="44.450001"
        r="2.1166666" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none;fill-opacity:0.5"
        id="path8"
        cx="25.4"
        cy="57.149998"
        r="2.1166666" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none;fill-opacity:0.5"
        id="path9"
        cx="40.216667"
        cy="57.149998"
        r="2.1166666" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none"
+       style="fill:#ffffff;stroke:#000000;stroke-width:1.05833;stroke-dasharray:none;fill-opacity:0.5"
        id="path10"
        cx="27.516666"
        cy="40.216667"

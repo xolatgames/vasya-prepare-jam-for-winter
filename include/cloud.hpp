@@ -11,13 +11,13 @@ public:
     void Update();
     void Draw(sf::RenderWindow &window, float cameraX);
 
-    sf::Image cloudImage;
-    sf::Texture cloudTexture;
-    sf::Sprite cloudSprite;
+    sf::Image image;
+    sf::Texture texture;
+    sf::Sprite sprite;
 
-    float cloudX;
-    float cloudY;
-    float cloudSpeed;
+    float x;
+    float y;
+    float speed;
 };
 
 #endif // CLOUD_H

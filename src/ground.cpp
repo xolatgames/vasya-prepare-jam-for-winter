@@ -1,33 +1,33 @@
 #include <SFML/Graphics.hpp>
 #include "../include/ground.hpp"
 
-Ground::Ground(int image, float groundX, float groundY)
+Ground::Ground(int id, float x, float y)
 {
-    switch (image)
+    switch (id)
     {
         case Image::Top:
         {
-            groundImage.loadFromFile("png/ground_top.png");
+            image.loadFromFile("png/ground_top.png");
         }
         break;
 
         case Image::Center:
         {
-            groundImage.loadFromFile("png/ground.png");
+            image.loadFromFile("png/ground.png");
         }
         break;
     }
 
-    groundTexture.loadFromImage(groundImage);
+    texture.loadFromImage(image);
 
-    groundSprite.setTexture(groundTexture);
-    groundSprite.setOrigin(sf::Vector2f(32, 32));
-    groundSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-    groundSprite.setPosition(sf::Vector2f(groundX, groundY));
+    sprite.setTexture(texture);
+    sprite.setOrigin(sf::Vector2f(32, 32));
+    sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+    sprite.setPosition(sf::Vector2f(x, y));
 }
 
 void Ground::Draw(sf::RenderWindow &window, float cameraX)
 {
-    groundSprite.setPosition( groundSprite.getPosition() - sf::Vector2f(cameraX, 0) );
-    window.draw(groundSprite);
+    sprite.setPosition( sprite.getPosition() - sf::Vector2f(cameraX, 0) );
+    window.draw(sprite);
 }

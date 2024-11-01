@@ -3,16 +3,16 @@
 #include "../../include/enemy/bird.hpp"
 #include "../../include/player.hpp"
 
-Bird::Bird(float birdX, float birdY)
+Bird::Bird(float x, float y)
 {
-    bird1Image.loadFromFile("png/enemy/bird1.png");
-    bird2Image.loadFromFile("png/enemy/bird2.png");
-    bird1Texture.loadFromImage(bird1Image);
-    bird2Texture.loadFromImage(bird2Image);
-    birdSprite.setTexture(bird1Texture);
-    birdSprite.setOrigin(sf::Vector2f(32, 32));
-    birdSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-    birdSprite.setPosition(sf::Vector2f(birdX, birdY));
+    image1.loadFromFile("png/enemy/bird1.png");
+    image2.loadFromFile("png/enemy/bird2.png");
+    texture1.loadFromImage(image1);
+    texture2.loadFromImage(image2);
+    sprite.setTexture(texture1);
+    sprite.setOrigin(sf::Vector2f(32, 32));
+    sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+    sprite.setPosition(sf::Vector2f(x, y));
 
     wingsBuffer.loadFromFile("sound/wings.wav");
     wingsSound.setBuffer(wingsBuffer);
@@ -22,13 +22,13 @@ Bird::Bird(float birdX, float birdY)
 
 void Bird::Update(Player* player)
 {
-    birdMask = birdSprite.getGlobalBounds();
-    birdMask.left += 16;
-    birdMask.width -= 32;
-    birdMask.top += 16;
-    birdMask.height -= 32;
+    mask = sprite.getGlobalBounds();
+    mask.left += 16;
+    mask.width -= 32;
+    mask.top += 16;
+    mask.height -= 32;
 
-    direction = player->playerSprite.getPosition() - birdSprite.getPosition();
+    direction = player->sprite.getPosition() - sprite.getPosition();
 
     distance_calculation = direction;
     if (distance_calculation.x < 0) {distance_calculation.x = -distance_calculation.x;}
@@ -45,9 +45,9 @@ void Bird::Update(Player* player)
 
     direction = direction / distance;
 
-    if (distance > 32)
+    if (distance > minDistance)
     {
-        birdSprite.move(direction * float(3));
+        sprite.move(direction * speed);
     }
 
     ChangeAnimation();
@@ -55,18 +55,16 @@ void Bird::Update(Player* player)
 
 void Bird::ChangeAnimation()
 {
-    wingsSound.setVolume(50 - distance/1280*50);
-
     switch (spriteFrame)
     {
         case 0:
         {
-            birdSprite.setTexture(bird1Texture);
+            sprite.setTexture(texture1);
         }
         break;
         case 10:
         {
-            birdSprite.setTexture(bird2Texture);
+            sprite.setTexture(texture2);
             wingsSound.play();
         }
         break;
@@ -80,16 +78,21 @@ void Bird::ChangeAnimation()
 
     if (direction.x > 0)
     {
-        birdSprite.setScale(sf::Vector2f(1, 1));
+        sprite.setScale(sf::Vector2f(1, 1));
     }
     else
     {
-        birdSprite.setScale(sf::Vector2f(-1, 1));
+        sprite.setScale(sf::Vector2f(-1, 1));
     }
+}
+
+void Bird::SetSoundsVolume(float volume)
+{
+    wingsSound.setVolume( (maxSoundsVolume - distance / maxSoundsDistance * maxSoundsVolume) * volume / 100 );
 }
 
 void Bird::Draw(sf::RenderWindow &window, float cameraX)
 {
-    birdSprite.setPosition( birdSprite.getPosition() - sf::Vector2f(cameraX, 0) );
-    window.draw(birdSprite);
+    sprite.setPosition( sprite.getPosition() - sf::Vector2f(cameraX, 0) );
+    window.draw(sprite);
 }

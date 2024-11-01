@@ -27,7 +27,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="5.543368"
-     inkscape:cx="16.506211"
+     inkscape:cx="16.686606"
      inkscape:cy="29.584902"
      inkscape:window-width="1440"
      inkscape:window-height="828"
@@ -60,14 +60,14 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
+       style="fill:#5fd35f;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
        id="rect1"
        width="2.1166666"
        height="4.2333331"
        x="7.4083333"
        y="9.5249996" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
+       style="fill:#ffeeaa;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
        id="path1"
        cx="8.4666662"
        cy="6.3499999"
@@ -86,7 +86,7 @@
        id="path4"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
+       style="fill:#aa0000;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
        d="M 8.4666665,3.175 12.699999,1.0583333 11.641666,2.1166666 14.816666,1.0583333 12.699999,3.175 14.816666,2.1166666 12.494795,5.047968 11.641666,4.2333332 9.5249998,4.233333 V 3.175 Z"
        id="path5"
        sodipodi:nodetypes="ccccccccccc" />

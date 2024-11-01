@@ -6,16 +6,16 @@
 
 using namespace std;
 
-Turtle::Turtle(float turtleX, float turtleY)
+Turtle::Turtle(float x, float y)
 {
-    turtle1Image.loadFromFile("png/enemy/turtle1.png");
-    turtle2Image.loadFromFile("png/enemy/turtle2.png");
-    turtle1Texture.loadFromImage(turtle1Image);
-    turtle2Texture.loadFromImage(turtle2Image);
-    turtleSprite.setTexture(turtle1Texture);
-    turtleSprite.setOrigin(sf::Vector2f(32, 32));
-    turtleSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-    turtleSprite.setPosition(sf::Vector2f(turtleX, turtleY));
+    image1.loadFromFile("png/enemy/turtle1.png");
+    image2.loadFromFile("png/enemy/turtle2.png");
+    texture1.loadFromImage(image1);
+    texture2.loadFromImage(image2);
+    sprite.setTexture(texture1);
+    sprite.setOrigin(sf::Vector2f(32, 32));
+    sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+    sprite.setPosition(sf::Vector2f(x, y));
 
     walkBuffer.loadFromFile("sound/walk.wav");
     walkSound.setBuffer(walkBuffer);
@@ -27,13 +27,13 @@ Turtle::Turtle(float turtleX, float turtleY)
 
 void Turtle::Update(Player* player, vector<Ground*> grounds)
 {
-    turtleMask = turtleSprite.getGlobalBounds();
-    turtleMask.left += 16;
-    turtleMask.width -= 32;
-    turtleMask.top += 16;
-    turtleMask.height -= 16;
+    mask = sprite.getGlobalBounds();
+    mask.left += 16;
+    mask.width -= 32;
+    mask.top += 16;
+    mask.height -= 16;
 
-    distance_calculation = player->playerSprite.getPosition() - turtleSprite.getPosition();;
+    distance_calculation = player->sprite.getPosition() - sprite.getPosition();;
     if (distance_calculation.x < 0) {distance_calculation.x = -distance_calculation.x;}
     if (distance_calculation.y < 0) {distance_calculation.y = -distance_calculation.y;}
 
@@ -50,34 +50,32 @@ void Turtle::Update(Player* player, vector<Ground*> grounds)
     {
         Ground *ground = grounds.at(i);
 
-        sf::FloatRect turtleRect = turtleMask;
-        turtleRect.left += speedX;
+        sf::FloatRect rect = mask;
+        rect.left += speedX;
 
-        if (turtleRect.intersects(ground->groundSprite.getGlobalBounds()))
+        if (rect.intersects(ground->sprite.getGlobalBounds()))
         {
             speedX = -speedX;
         }
     }
 
-    turtleSprite.move(sf::Vector2f(speedX, 0));
+    sprite.move(sf::Vector2f(speedX, 0));
 
     ChangeAnimation();
 }
 
 void Turtle::ChangeAnimation()
 {
-    walkSound.setVolume(50 - distance/1280*50);
-
     switch (spriteFrame)
     {
         case 0:
         {
-            turtleSprite.setTexture(turtle1Texture);
+            sprite.setTexture(texture1);
         }
         break;
         case 10:
         {
-            turtleSprite.setTexture(turtle2Texture);
+            sprite.setTexture(texture2);
             walkSound.play();
         }
         break;
@@ -91,16 +89,21 @@ void Turtle::ChangeAnimation()
 
     if (speedX > 0)
     {
-        turtleSprite.setScale(sf::Vector2f(1, 1));
+        sprite.setScale(sf::Vector2f(1, 1));
     }
     else
     {
-        turtleSprite.setScale(sf::Vector2f(-1, 1));
+        sprite.setScale(sf::Vector2f(-1, 1));
     }
+}
+
+void Turtle::SetSoundsVolume(float volume)
+{
+    walkSound.setVolume( (maxSoundsVolume - distance / maxSoundsDistance * maxSoundsVolume) * volume / 100 );
 }
 
 void Turtle::Draw(sf::RenderWindow &window, float cameraX)
 {
-    turtleSprite.setPosition( turtleSprite.getPosition() - sf::Vector2f(cameraX, 0) );
-    window.draw(turtleSprite);
+    sprite.setPosition( sprite.getPosition() - sf::Vector2f(cameraX, 0) );
+    window.draw(sprite);
 }

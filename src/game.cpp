@@ -19,9 +19,14 @@ Game::Game(sf::RenderWindow &window)
     music.play();
 
     clickBuffer.loadFromFile("sound/click.wav");
+    testBuffer.loadFromFile("sound/jump.wav");
     clickSound.setBuffer(clickBuffer);
+    testSound.setBuffer(testBuffer);
 
     scene = -1;
+
+    soundsVolume = 100;
+    test_sound_delay = 0;
 
     cameraX = 0;
 
@@ -29,6 +34,18 @@ Game::Game(sf::RenderWindow &window)
     {
         while (window.pollEvent(event))
         {
+            mousePressed = false;
+            mouseReleased = false;
+
+
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                mousePressed = true;
+            }
+            if (event.type == sf::Event::MouseButtonReleased)
+            {
+                mouseReleased = true;
+            }
             if (event.type == sf::Event::Closed)
             {
                 window.close();
@@ -61,13 +78,13 @@ Game::Game(sf::RenderWindow &window)
                     string tileMap[] =
                     {
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
+                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "B", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "J", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "GT", "GT", "GT", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "B", "0", "0", "0", "0", "0", "0", "0", "0", "0",
+                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "J", "0",
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "GT", "GT", "GT",
                         "0", "0", "0", "P", "0", "0", "Tu", "0", "0", "0", "0", "0", "0", "0", "0", "R", "0", "G", "G", "G",
@@ -90,7 +107,23 @@ Game::Game(sf::RenderWindow &window)
                         "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
                     };
 
-                    level = new Level(tileMap, backMap, 20, 12);
+                    string labelsMap[] =
+                    {
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "Here'll be Tutorial instruction\nin the next update! ;D", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                    };
+
+                    level = new Level(tileMap, backMap, labelsMap, 20, 12);
                 }
                 break;
             }
@@ -113,13 +146,41 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
         for ( unsigned int i=0; i < (*menu).background->clouds.size(); i++ )
         {
             (*menu).background->clouds.at(i)->Update();
+        }
 
-            (*menu).play->Hover(window);
-            if ((*menu).play->Click(window))
+        bool ui_hovered = false;
+
+        if ( (*menu).play->Hover(window) ) { ui_hovered = true; }
+        if ((*menu).play->Click(window, mousePressed))
+        {
+            clickSound.play();
+            return 1;
+        }
+
+        if ( (*menu).sounds_slider->Hover(window) ) { ui_hovered = true; }
+
+        if ( (*menu).sounds_slider->Change(window, mousePressed, mouseReleased) != -1 )
+        {
+            soundsVolume = (*menu).sounds_slider->Change(window, mousePressed, mouseReleased) / 512 * 100;
+            if (test_sound_delay < 0)
             {
-                clickSound.play();
-                return 1;
+                testSound.setVolume(soundsVolume);
+                clickSound.setVolume(soundsVolume);
+                testSound.play();
+                test_sound_delay = 30;
             }
+        }
+
+        test_sound_delay -= 1;
+
+        if ( (*menu).music_slider->Hover(window) ) { ui_hovered = true; }
+        music.setVolume( (*menu).music_slider->Change(window, mousePressed, mouseReleased) / 512 * 100 );
+
+        if (!ui_hovered)
+        {
+            sf::Cursor cursor;
+            cursor.loadFromSystem(sf::Cursor::Arrow);
+            window.setMouseCursor(cursor);
         }
     }
     else
@@ -138,10 +199,33 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
             (*level).jams.erase((*level).jams.begin() + pick_up_jam );
         }
 
+        int contacted_turtle = (*level).player->ContactWithTurtle( (*level).turtles );
+
+        if ( contacted_turtle != -1 )
+        {
+            (*level).turtles.erase((*level).turtles.begin() + contacted_turtle );
+        }
+
+        int contacted_rabbit = (*level).player->ContactWithRabbit( (*level).rabbits );
+
+        if ( contacted_rabbit != -1 )
+        {
+            (*level).rabbits.erase((*level).rabbits.begin() + contacted_rabbit );
+        }
+
+        int contacted_bird = (*level).player->ContactWithBird( (*level).birds );
+
+        if ( contacted_bird != -1 )
+        {
+            (*level).birds.erase((*level).birds.begin() + contacted_bird );
+        }
+
         if ((*level).player->Restart())
         {
             return scene;
         }
+
+        (*level).player->SetSoundsVolume(soundsVolume);
 
         for ( unsigned int i=0; i < (*level).jams.size(); i++ )
         {
@@ -150,14 +234,17 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
          for ( unsigned int i=0; i < (*level).turtles.size(); i++ )
         {
             (*level).turtles.at(i)->Update( (*level).player, (*level).grounds );
+            (*level).turtles.at(i)->SetSoundsVolume(soundsVolume);
         }
          for ( unsigned int i=0; i < (*level).rabbits.size(); i++ )
         {
             (*level).rabbits.at(i)->Update( (*level).player, (*level).grounds );
+            (*level).rabbits.at(i)->SetSoundsVolume(soundsVolume);
         }
          for ( unsigned int i=0; i < (*level).birds.size(); i++ )
         {
             (*level).birds.at(i)->Update( (*level).player );
+            (*level).birds.at(i)->SetSoundsVolume(soundsVolume);
         }
 
         cameraX = (*level).player->Camera();
@@ -181,6 +268,10 @@ void Game::Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *leve
         for ( unsigned int i=0; i < (*level).backTextures.size(); i++ )
         {
             (*level).backTextures.at(i)->Draw(window, cameraX);
+        }
+        for ( unsigned int i=0; i < (*level).labels.size(); i++ )
+        {
+            (*level).labels.at(i)->Draw(window, cameraX);
         }
 
         for ( unsigned int i=0; i < (*level).grounds.size(); i++ )

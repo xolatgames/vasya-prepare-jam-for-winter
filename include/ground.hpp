@@ -6,15 +6,15 @@
 class Ground
 {
 public:
-    Ground(int image, float groundX, float groundY);
+    Ground(int id, float x, float y);
 
     void Draw(sf::RenderWindow &window, float cameraX);
 
     enum Image {Top, Center};
-    sf::Image groundImage;
+    sf::Image image;
 
-    sf::Texture groundTexture;
-    sf::Sprite groundSprite;
+    sf::Texture texture;
+    sf::Sprite sprite;
 };
 
 #endif // GROUND_H

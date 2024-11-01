@@ -15,32 +15,41 @@ class Ground;
 class Rabbit
 {
 public:
-    Rabbit(float rabbitX, float rabbitY);
+    Rabbit(float x, float y);
 
     void Update(Player* player, vector<Ground*> grounds);
+    void SetSoundsVolume(float volume);
     void Draw(sf::RenderWindow &window, float cameraX);
 
-    sf::Image rabbit1Image;
-    sf::Image rabbit2Image;
-    sf::Texture rabbit1Texture;
-    sf::Texture rabbit2Texture;
-    sf::Sprite rabbitSprite;
+    sf::Image idleImage;
+    sf::Image jumpImage;
+    sf::Texture idleTexture;
+    sf::Texture jumpTexture;
+    sf::Sprite sprite;
 
-    sf::FloatRect rabbitMask;
+    sf::FloatRect mask;
 
     sf::SoundBuffer jumpBuffer;
     sf::Sound jumpSound;
 
+    const float maxSoundsVolume = 50;
+    const float maxSoundsDistance = 1280;
+
     enum Side { Left, Right };
     int side;
-
-    sf::Vector2f distance_calculation;
-    float distance;
 
     int jump_delay;
 
     float speedX;
     float speedY;
+
+    const float jumpForceX = 4;
+    const float jumpForceY = 10;
+    const float gravityForce = 0.2;
+    const float maxFallSpeed = 8;
+
+    sf::Vector2f distance_calculation;
+    float distance;
 
 private:
     void Hop();

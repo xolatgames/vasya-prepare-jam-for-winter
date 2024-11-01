@@ -65,14 +65,14 @@
        id="path4"
        sodipodi:nodetypes="ccc" />
     <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
+       style="fill:#5fd35f;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
        id="rect1"
        width="2.1166666"
        height="4.2333331"
        x="7.4083333"
        y="10.054166" />
     <circle
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
+       style="fill:#ffeeaa;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
        id="path1"
        cx="8.4666662"
        cy="6.8791661"
@@ -88,7 +88,7 @@
        id="path3"
        sodipodi:nodetypes="cccc" />
     <path
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
+       style="fill:#aa0000;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
        d="m 8.4666665,3.7041662 4.2333325,-2.1166667 -1.058333,1.0583333 3.175,-1.0583333 -2.116667,2.1166667 2.116667,-1.0583334 -2.321871,2.9313014 -0.853129,-0.8146348 -2.1166662,-2e-7 v -1.058333 z"
        id="path5"
        sodipodi:nodetypes="ccccccccccc" />

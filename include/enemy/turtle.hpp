@@ -15,28 +15,32 @@ class Ground;
 class Turtle
 {
 public:
-    Turtle(float turtleX, float turtleY);
+    Turtle(float x, float y);
 
     void Update(Player* player, vector<Ground*> grounds);
+    void SetSoundsVolume(float volume);
     void Draw(sf::RenderWindow &window, float cameraX);
 
-    sf::Image turtle1Image;
-    sf::Image turtle2Image;
-    sf::Texture turtle1Texture;
-    sf::Texture turtle2Texture;
-    sf::Sprite turtleSprite;
+    sf::Image image1;
+    sf::Image image2;
+    sf::Texture texture1;
+    sf::Texture texture2;
+    sf::Sprite sprite;
 
-    sf::FloatRect turtleMask;
+    sf::FloatRect mask;
 
     sf::SoundBuffer walkBuffer;
     sf::Sound walkSound;
 
+    const float maxSoundsVolume = 50;
+    const float maxSoundsDistance = 1280;
+
     int spriteFrame;
+
+    float speedX;
 
     sf::Vector2f distance_calculation;
     float distance;
-
-    float speedX;
 
 private:
     void ChangeAnimation();

@@ -3,13 +3,14 @@
 #include "../include/level.hpp"
 #include "../include/background.hpp"
 #include "../include/backTexture.hpp"
+#include "../include/label.hpp"
 #include "../include/player.hpp"
 #include "../include/ground.hpp"
 #include "../include/jam.hpp"
 
 using namespace std;
 
-Level::Level(string tileMap[], string backMap[], int sizeX, int sizeY)
+Level::Level(string tileMap[], string backMap[], string labelsMap[], int sizeX, int sizeY)
 {
     background = new Background();
 
@@ -25,6 +26,17 @@ Level::Level(string tileMap[], string backMap[], int sizeX, int sizeY)
             else if ( backMap[tile] == "T" )
             {
                 backTextures.push_back(new BackTexture(BackTexture::Tree, x * 64, y * 64 + 64));
+            }
+        }
+
+    for ( int x=0; x < sizeX; x++ )
+        for ( int y=0; y < sizeY; y++ )
+        {
+            int tile = x + y * sizeX;
+
+            if ( labelsMap[tile] != "" )
+            {
+                labels.push_back(new Label(labelsMap[tile], x * 64, y * 64 + 64));
             }
         }
 
@@ -64,28 +76,28 @@ Level::Level(string tileMap[], string backMap[], int sizeX, int sizeY)
         }
 
     for ( int x=-10; x < 0; x++ )
-        for ( int y=0; y < sizeY; y++ )
+        for ( int y = -1; y < sizeY; y++ )
         {
-            if (y == 0)
+            if (y == -1)
             {
-                grounds.push_back(new Ground(Ground::Top, x * 64, y * 64 + 64));
+                grounds.push_back(new Ground(Ground::Top, x * 64, y * 64 + 96));
             }
             else
             {
-                grounds.push_back(new Ground(Ground::Center, x * 64, y * 64 + 64));
+                grounds.push_back(new Ground(Ground::Center, x * 64, y * 64 + 96));
             }
         }
 
     for ( int x=sizeX; x <= sizeX+10; x++ )
-        for ( int y=0; y < sizeY; y++ )
+        for ( int y = -1; y < sizeY; y++ )
         {
-            if (y == 0)
+            if (y == -1)
             {
-                grounds.push_back(new Ground(Ground::Top, x * 64, y * 64 + 64));
+                grounds.push_back(new Ground(Ground::Top, x * 64, y * 64 + 96));
             }
             else
             {
-                grounds.push_back(new Ground(Ground::Center, x * 64, y * 64 + 64));
+                grounds.push_back(new Ground(Ground::Center, x * 64, y * 64 + 96));
             }
         }
 }

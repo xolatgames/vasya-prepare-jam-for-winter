@@ -6,16 +6,16 @@
 class Jam
 {
 public:
-    Jam(float jamX, float JamY);
+    Jam(float x, float y);
 
     void Update();
     void Draw(sf::RenderWindow &window, float cameraX);
 
-    sf::Image jamImage;
-    sf::Texture jamTexture;
-    sf::Sprite jamSprite;
+    sf::Image image;
+    sf::Texture texture;
+    sf::Sprite sprite;
 
-    sf::FloatRect jamMask;
+    sf::FloatRect mask;
 };
 
 #endif // JAM_H

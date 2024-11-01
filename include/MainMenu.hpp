@@ -5,9 +5,11 @@
 #include <vector>
 #include "background.hpp"
 #include "jam.hpp"
+#include "label.hpp"
 
 class Background;
 class Jam;
+class Label;
 
 class Play
 {
@@ -22,8 +24,37 @@ public:
     sf::Texture hoverTexture;
     sf::Sprite hoverSprite;
 
-    void Hover(sf::RenderWindow &window);
-    bool Click(sf::RenderWindow &window);
+    sf::Vector2f cursor_pos;
+    sf::Cursor cursor;
+
+    bool Hover(sf::RenderWindow &window);
+    bool Click(sf::RenderWindow &window, bool mousePressed);
+};
+
+class Slider
+{
+public:
+    Slider(float x, float y);
+
+    sf::Image sliderImage;
+    sf::Texture sliderTexture;
+    sf::Sprite sliderSprite;
+
+    sf::Image grabberImage;
+    sf::Texture grabberTexture;
+    sf::Sprite grabberSprite;
+
+    sf::Image grabberHoverImage;
+    sf::Texture grabberHoverTexture;
+    sf::Sprite grabberHoverSprite;
+
+    sf::Vector2f cursor_pos;
+    sf::Cursor cursor;
+
+    bool grab;
+
+    bool Hover(sf::RenderWindow &window);
+    float Change(sf::RenderWindow &window, bool mousePressed, bool mouseReleased);
 };
 
 class MainMenu
@@ -39,6 +70,11 @@ public:
     Jam *jam;
 
     Play *play;
+
+    vector<Label*> labels;
+
+    Slider *sounds_slider;
+    Slider *music_slider;
 
     void Draw(sf::RenderWindow &window);
 };

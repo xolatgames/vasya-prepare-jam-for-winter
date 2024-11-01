@@ -4,6 +4,10 @@
 
 #### Music by timbeek.com
 
+https://github.com/user-attachments/assets/256dd21c-5892-4202-8a4c-6f169f080b9c
+
+  **Thanks to https://github.com/45P3R4/ for some code review 😉**
+
 #### The IDE that used in this project: Code::Block (https://www.codeblocks.org/)
 
 #### Third-party libraries that must have for this:
@@ -24,9 +28,9 @@
 
        ✔️ Turtles 🐢 , Rabbits 🐇 and Birds 🐦 as enemies ,
 
-       ❌ Changing sounds and music volume ,
+       ✔️ Changing sounds and music volume ,
 
-       ❌ Create 3 levels at least 🕹️ ,
+       ❌ Create 3 levels at least 🕹️
 
     } ;
 
@@ -34,17 +38,17 @@
 
     {
 
-      Install Code::Blocks IDE -> **https://www.codeblocks.org/** ;
+      Install Code::Blocks IDE -> https://www.codeblocks.org/ ;
 
-      Download SFML library -> **https://www.sfml-dev.org/download/sfml/2.6.1/** ;
+      Download SFML library -> https://www.sfml-dev.org/download/sfml/2.6.1/ ;
 
-      Open this project in Code::Blocks ( The project is located in **Vasya-prepare-jam-for-winter.cbp** file ) ;
+      Open this project in Code::Blocks ( The project is located in "Vasya-prepare-jam-for-winter.cbp" file ) ;
 
-      Do things in this instruction for setting up project -> **https://www.sfml-dev.org/tutorials/2.6/start-cb.php** *Yeap! This hard for beginners!* ;
+      Do things in this instruction for setting up project -> https://www.sfml-dev.org/tutorials/2.6/start-cb.php , // Yeap! This will be hard for beginners! ;
 
-      Open **main.cpp** in opened project ;
+      Open "main.cpp" in opened project ;
 
-      Click on the gear in somewhere at the top menus (**Build**), or just press **Ctrl + F9** ;
+      Click on the gear in somewhere at the top menus (Build), or just press Ctrl + F9 ;
 
       Got it!
 
@@ -59,9 +63,9 @@
 
       Go to the project folder in your file manager ;
 
-      Then locate to **"/bin/Release"** ;
-
-      And launch **Vasya-prepare-jam-for-winter** !
+      Then locate to "/bin/Release" ;
+      
+      And launch "Vasya-prepare-jam-for-winter" !
 
     } ;
 

@@ -6,15 +6,15 @@
 class BackTexture
 {
 public:
-    BackTexture(int image, float backX, float backY);
+    BackTexture(int id, float x, float y);
 
     void Draw(sf::RenderWindow &window, float cameraX);
 
     enum Image {House, Tree};
-    sf::Image backImage;
+    sf::Image image;
 
-    sf::Texture backTexture;
-    sf::Sprite backSprite;
+    sf::Texture texture;
+    sf::Sprite sprite;
 };
 
 #endif // BACK_H

@@ -21,9 +21,17 @@ public:
 
     sf::Music music;
     sf::SoundBuffer clickBuffer;
+    sf::SoundBuffer testBuffer;
     sf::Sound clickSound;
+    sf::Sound testSound;
 
     int scene;
+
+    bool mousePressed;
+    bool mouseReleased;
+
+    float soundsVolume;
+    int test_sound_delay;
 
     MainMenu *menu;
     Level *level;

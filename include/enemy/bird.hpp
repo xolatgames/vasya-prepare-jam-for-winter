@@ -12,27 +12,35 @@ class Player;
 class Bird
 {
 public:
-    Bird(float birdX, float birdY);
+    Bird(float x, float y);
 
     void Update(Player* player);
+    void SetSoundsVolume(float volume);
     void Draw(sf::RenderWindow &window, float cameraX);
 
-    sf::Image bird1Image;
-    sf::Image bird2Image;
-    sf::Texture bird1Texture;
-    sf::Texture bird2Texture;
-    sf::Sprite birdSprite;
+    sf::Image image1;
+    sf::Image image2;
+    sf::Texture texture1;
+    sf::Texture texture2;
+    sf::Sprite sprite;
 
-    sf::FloatRect birdMask;
+    sf::FloatRect mask;
 
     sf::SoundBuffer wingsBuffer;
     sf::Sound wingsSound;
 
+    const float maxSoundsVolume = 50;
+    const float maxSoundsDistance = 1280;
+
     int spriteFrame;
+
+    const float speed = 3;
 
     sf::Vector2f distance_calculation;
     float distance;
     sf::Vector2f direction;
+
+    const float minDistance = 32;
 
 private:
     void ChangeAnimation();

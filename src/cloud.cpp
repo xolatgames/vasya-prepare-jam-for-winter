@@ -5,39 +5,39 @@
 
 Cloud::Cloud(int rand_seed)
 {
-    cloudImage.loadFromFile("png/back/cloud.png");
-    cloudTexture.loadFromImage(cloudImage);
-    cloudSprite.setTexture(cloudTexture);
-    cloudSprite.setOrigin(sf::Vector2f(128, 64));
-    cloudSprite.setTextureRect(sf::IntRect(0, 0, 256, 128));
+    image.loadFromFile("png/back/cloud.png");
+    texture.loadFromImage(image);
+    sprite.setTexture(texture);
+    sprite.setOrigin(sf::Vector2f(128, 64));
+    sprite.setTextureRect(sf::IntRect(0, 0, 256, 128));
 
     time_t t;
 
     srand(time(&t) + rand_seed);
-    cloudX = (float)rand() / RAND_MAX * 1280;
-    cloudY = (float)rand() / RAND_MAX * 400 + 64;
-    cloudSpeed = (float)rand() / RAND_MAX + 1;
+    x = (float)rand() / RAND_MAX * 1280;
+    y = (float)rand() / RAND_MAX * 400 + 64;
+    speed = (float)rand() / RAND_MAX + 1;
 
-    cloudSprite.setScale(sf::Vector2f(cloudSpeed / 2, cloudSpeed / 2));
-    cloudSprite.setPosition(sf::Vector2f(cloudX, cloudY));
+    sprite.setScale(sf::Vector2f(speed / 2, speed / 2));
+    sprite.setPosition(sf::Vector2f(x, y));
 }
 
 void Cloud::Update()
 {
-    cloudSprite.move(sf::Vector2f(-cloudSpeed / 5, 0));
+    sprite.move(sf::Vector2f(-speed / 5, 0));
 
-    if ( cloudSprite.getPosition().x < -128 )
+    if ( sprite.getPosition().x < -128 )
     {
-        cloudSprite.setPosition(sf::Vector2f(1408, cloudY));
+        sprite.setPosition(sf::Vector2f(1408, y));
     }
-    else if ( cloudSprite.getPosition().x > 1408 )
+    else if ( sprite.getPosition().x > 1408 )
     {
-        cloudSprite.setPosition(sf::Vector2f(-128, cloudY));
+        sprite.setPosition(sf::Vector2f(-128, y));
     }
 }
 
 void Cloud::Draw(sf::RenderWindow &window, float cameraX)
 {
-    cloudSprite.setPosition( cloudSprite.getPosition() - sf::Vector2f(cameraX / 2, 0) );
-    window.draw(cloudSprite);
+    sprite.setPosition( sprite.getPosition() - sf::Vector2f(cameraX / 2, 0) );
+    window.draw(sprite);
 }

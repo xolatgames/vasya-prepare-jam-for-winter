@@ -5,6 +5,7 @@
 #include <vector>
 #include "background.hpp"
 #include "backTexture.hpp"
+#include "label.hpp"
 #include "player.hpp"
 #include "ground.hpp"
 #include "jam.hpp"
@@ -15,6 +16,7 @@
 using namespace std;
 
 class Background;
+class Label;
 class Player;
 class Ground;
 class Jam;
@@ -25,11 +27,12 @@ class Bird;
 class Level
 {
 public:
-    Level(string tileMap[], string backMap[], int sizeX, int sizeY);
+    Level(string tileMap[], string backMap[], string labelsMap[], int sizeX, int sizeY);
 
     Background *background;
 
     vector<BackTexture*> backTextures;
+    vector<Label*> labels;
 
     Player *player;
 

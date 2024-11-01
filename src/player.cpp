@@ -14,23 +14,27 @@ Player::Player(float playerX, float playerY)
     walk2Image.loadFromFile("png/player/walk2.png");
     fallImage.loadFromFile("png/player/fall.png");
     jumpImage.loadFromFile("png/player/jump.png");
+    loseImage.loadFromFile("png/player/lose.png");
     idleTexture.loadFromImage(idleImage);
     walk1Texture.loadFromImage(walk1Image);
     walk2Texture.loadFromImage(walk2Image);
     fallTexture.loadFromImage(fallImage);
     jumpTexture.loadFromImage(jumpImage);
+    loseTexture.loadFromImage(loseImage);
 
-    playerSprite.setTexture(idleTexture);
-    playerSprite.setOrigin(sf::Vector2f(32, 32));
-    playerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-    playerSprite.setPosition(sf::Vector2f(playerX, playerY));
+    sprite.setTexture(idleTexture);
+    sprite.setOrigin(sf::Vector2f(32, 32));
+    sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+    sprite.setPosition(sf::Vector2f(playerX, playerY));
 
     walkBuffer.loadFromFile("sound/walk.wav");
     jumpBuffer.loadFromFile("sound/jump.wav");
     jamBuffer.loadFromFile("sound/jam.wav");
+    loseBuffer.loadFromFile("sound/lose.wav");
     walkSound.setBuffer(walkBuffer);
     jumpSound.setBuffer(jumpBuffer);
     jamSound.setBuffer(jamBuffer);
+    loseSound.setBuffer(loseBuffer);
 
     side = Side::Right;
     spriteFrame = 0;
@@ -41,117 +45,132 @@ Player::Player(float playerX, float playerY)
     jumpNumber = 0;
     jumpKeyReleased = true;
     jumpTimer = -1;
+
+    lose = false;
 }
 
 void Player::Update(vector<Ground*> grounds)
 {
-    playerMask = playerSprite.getGlobalBounds();
-    playerMask.left += 16;
-    playerMask.width -= 32;
-    playerMask.top += 16;
-    playerMask.height -= 16;
-
-    if (speedX < -0.2)
+    if (!lose)
     {
-        speedX += 0.1;
-    }
-    else if (speedX > 0.2)
-    {
-        speedX -= 0.1;
-    }
-    else
-    {
-        speedX = 0;
-    }
+        mask = sprite.getGlobalBounds();
+        mask.left += 16;
+        mask.width -= 32;
+        mask.top += 16;
+        mask.height -= 16;
 
-    if (speedX < -6)
-    {
-        speedX = -6;
-    }
-    else if (speedX > 6)
-    {
-        speedX = 6;
-    }
-
-    speedY += 0.2;
-
-    if (speedY > 8)
-    {
-        speedY = 8;
-    }
-
-    Input();
-
-    grounded = false;
-
-    for ( unsigned int i=0; i < grounds.size(); i++ )
-    {
-        Ground *ground = grounds.at(i);
-
-        sf::FloatRect playerRect = playerMask;
-        playerRect.top += speedY;
-
-        if (playerRect.intersects(ground->groundSprite.getGlobalBounds()))
+        if (speedX < -decelerationX)
         {
-            if ( (speedY > 1)||(speedY < -0.5) )
-            {
-                walkSound.play();
-            }
-            if (speedY > 0)
-            {
-                jumpNumber = 2;
-                grounded = true;
-                playerSprite.setPosition(sf::Vector2f(playerSprite.getPosition().x, ground->groundSprite.getGlobalBounds().top - 32));
-                speedY = 0;
-            }
-            else
-            {
-                speedY = 0;
-            }
+            speedX += decelerationX;
         }
-    }
-
-    playerSprite.move(sf::Vector2f(0, speedY));
-
-    for ( unsigned int i=0; i < grounds.size(); i++ )
-    {
-        Ground *ground = grounds.at(i);
-
-        sf::FloatRect playerRect = playerMask;
-        playerRect.left += speedX;
-
-        if (playerRect.intersects(ground->groundSprite.getGlobalBounds()))
+        else if (speedX > decelerationX)
+        {
+            speedX -= decelerationX;
+        }
+        else
         {
             speedX = 0;
         }
+
+        if (speedX < -maxSpeedX)
+        {
+            speedX = -maxSpeedX;
+        }
+        else if (speedX > maxSpeedX)
+        {
+            speedX = maxSpeedX;
+        }
+
+        speedY += gravityForce;
+
+        if (speedY > maxFallSpeed)
+        {
+            speedY = maxFallSpeed;
+        }
+
+        Input();
+
+        grounded = false;
+
+        for ( unsigned int i=0; i < grounds.size(); i++ )
+        {
+            Ground *ground = grounds.at(i);
+
+            sf::FloatRect rect = mask;
+            rect.top += speedY;
+
+            if (rect.intersects(ground->sprite.getGlobalBounds()))
+            {
+                if ( (speedY > 1)||(speedY < -0.5) )
+                {
+                    walkSound.play();
+                }
+                if (speedY > 0)
+                {
+                    jumpNumber = 2;
+                    grounded = true;
+                    sprite.setPosition(sf::Vector2f(sprite.getPosition().x, ground->sprite.getGlobalBounds().top - 32));
+                    speedY = 0;
+                }
+                else
+                {
+                    speedY = 0;
+                }
+            }
+        }
+
+        sprite.move(sf::Vector2f(0, speedY));
+
+        for ( unsigned int i=0; i < grounds.size(); i++ )
+        {
+            Ground *ground = grounds.at(i);
+
+            sf::FloatRect rect = mask;
+            rect.left += speedX;
+
+            if (rect.intersects(ground->sprite.getGlobalBounds()))
+            {
+                speedX = 0;
+            }
+        }
+
+        sprite.move(sf::Vector2f(speedX, 0));
+
+        if (jumpTimer > 0)
+        {
+            jumpTimer -= 1;
+        }
+        else if (jumpTimer == 0)
+        {
+            Jump();
+            jumpTimer = -1;
+        }
+
+        ChangeAnimation();
+
+        if ( sprite.getPosition().y > 900 )
+        {
+            Lose();
+        }
     }
-
-    playerSprite.move(sf::Vector2f(speedX, 0));
-
-    if (jumpTimer > 0)
+    else
     {
-        jumpTimer -= 1;
+        speedY += gravityForce;
+        sprite.move(sf::Vector2f(0, speedY));
     }
-    else if (jumpTimer == 0)
-    {
-        Jump();
-        jumpTimer = -1;
-    }
-
-    ChangeAnimation();
 }
 
 void Player::Input()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        speedX -= 0.2;
+        speedX -= accelerationX;
         side = Side::Left;
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        speedX += 0.2;
+        speedX += accelerationX;
         side = Side::Right;
     }
 
@@ -178,7 +197,7 @@ void Player::Jump()
 {
     if (jumpNumber > 0)
     {
-        speedY = -8;
+        speedY = -jumpForce;
         jumpSound.play();
         jumpNumber -= 1;
     }
@@ -188,11 +207,11 @@ void Player::ChangeAnimation()
 {
     if (speedY > 0)
     {
-        playerSprite.setTexture(fallTexture);
+        sprite.setTexture(fallTexture);
     }
     else if (speedY < 0)
     {
-        playerSprite.setTexture(jumpTexture);
+        sprite.setTexture(jumpTexture);
     }
     else if ( ( speedX < 0 )||( speedX > 0 ) )
     {
@@ -200,31 +219,31 @@ void Player::ChangeAnimation()
         {
             case 0:
             {
-                playerSprite.setTexture(walk1Texture);
+                sprite.setTexture(walk1Texture);
                 walkSound.play();
             }
             break;
             case 10:
             {
-                playerSprite.setTexture(idleTexture);
+                sprite.setTexture(idleTexture);
             }
             break;
             case 20:
             {
-                playerSprite.setTexture(walk2Texture);
+                sprite.setTexture(walk2Texture);
                 walkSound.play();
             }
             break;
             case 30:
             {
-                playerSprite.setTexture(idleTexture);
+                sprite.setTexture(idleTexture);
             }
             break;
         }
     }
     else
     {
-        playerSprite.setTexture(idleTexture);
+        sprite.setTexture(idleTexture);
     }
 
     spriteFrame += 1;
@@ -237,13 +256,13 @@ void Player::ChangeAnimation()
     {
         case Side::Right:
         {
-            playerSprite.setScale(sf::Vector2f(1, 1));
+            sprite.setScale(sf::Vector2f(1, 1));
         }
         break;
 
         case Side::Left:
         {
-            playerSprite.setScale(sf::Vector2f(-1, 1));
+            sprite.setScale(sf::Vector2f(-1, 1));
         }
         break;
     }
@@ -251,35 +270,148 @@ void Player::ChangeAnimation()
 
 float Player::Camera()
 {
-    return playerSprite.getPosition().x - 640;
+    return sprite.getPosition().x - 640;
 }
 
 int Player::PickUpJam(vector<Jam*> jams)
 {
-    for ( unsigned int i=0; i < jams.size(); i++ )
+    if (!lose)
     {
-        Jam *jam = jams.at(i);
-
-        if (playerMask.intersects(jam->jamMask))
+        for ( unsigned int i=0; i < jams.size(); i++ )
         {
-            jamSound.play();
-            return i;
+            Jam *jam = jams.at(i);
+
+            if (mask.intersects(jam->mask))
+            {
+                jamSound.play();
+                return i;
+            }
         }
     }
+
     return -1;
+}
+
+int Player::ContactWithTurtle(vector<Turtle*> turtles)
+{
+    if (!lose)
+    {
+        for ( unsigned int i=0; i < turtles.size(); i++ )
+        {
+            Turtle *turtle = turtles.at(i);
+
+            sf::FloatRect rect = mask;
+            rect.top += speedY + 4;
+
+            if (rect.intersects(turtle->mask))
+            {
+                if ( (speedY > 0)&&(!mask.intersects(turtle->mask)) )
+                {
+                    speedY = -push_from_enemy_force;
+                    jumpSound.play();
+                    jumpNumber = 1;
+                    return i;
+                }
+                else
+                {
+                    Lose();
+                }
+            }
+        }
+    }
+
+    return -1;
+}
+
+int Player::ContactWithRabbit(vector<Rabbit*> rabbits)
+{
+    if (!lose)
+    {
+        for ( unsigned int i=0; i < rabbits.size(); i++ )
+        {
+            Rabbit *rabbit = rabbits.at(i);
+
+            sf::FloatRect rect = mask;
+            rect.top += speedY + 4;
+
+            if (rect.intersects(rabbit->mask))
+            {
+                if ( (speedY > 0)&&(!mask.intersects(rabbit->mask)) )
+                {
+                    speedY = -push_from_enemy_force;
+                    jumpSound.play();
+                    jumpNumber = 1;
+                    return i;
+                }
+                else
+                {
+                    Lose();
+                }
+            }
+        }
+    }
+
+    return -1;
+}
+
+int Player::ContactWithBird(vector<Bird*> birds)
+{
+    if (!lose)
+    {
+        for ( unsigned int i=0; i < birds.size(); i++ )
+        {
+            Bird *bird = birds.at(i);
+
+            sf::FloatRect rect = mask;
+            rect.top += speedY + 4;
+
+            if (rect.intersects(bird->mask))
+            {
+                if ( (speedY > 0)&&(!mask.intersects(bird->mask)) )
+                {
+                    speedY = -push_from_enemy_force;
+                    jumpSound.play();
+                    jumpNumber = 1;
+                    return i;
+                }
+                else
+                {
+                    Lose();
+                }
+            }
+        }
+    }
+
+    return -1;
+}
+
+void Player::Lose()
+{
+    speedY = -loseHopForce;
+    sprite.setTexture(loseTexture);
+    loseSound.play();
+    lose = true;
 }
 
 bool Player::Restart()
 {
-    if ( playerSprite.getPosition().y > 900 )
+    if ( sprite.getPosition().y > 1000 )
     {
         return true;
     }
     return false;
 }
 
+void Player::SetSoundsVolume(float volume)
+{
+    walkSound.setVolume(volume);
+    jumpSound.setVolume(volume);
+    jamSound.setVolume(volume);
+    loseSound.setVolume(volume);
+}
+
 void Player::Draw(sf::RenderWindow &window, float cameraX)
 {
-    playerSprite.setPosition( playerSprite.getPosition() - sf::Vector2f(cameraX, 0) );
-    window.draw(playerSprite);
+    sprite.setPosition( sprite.getPosition() - sf::Vector2f(cameraX, 0) );
+    window.draw(sprite);
 }

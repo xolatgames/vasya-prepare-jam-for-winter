@@ -135,6 +135,7 @@
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/ground.hpp" />
 		<Unit filename="include/jam.hpp" />
+		<Unit filename="include/label.hpp" />
 		<Unit filename="include/level.hpp" />
 		<Unit filename="include/player.hpp" />
 		<Unit filename="png/back/cloud.png" />
@@ -145,9 +146,12 @@
 		<Unit filename="png/ground.png" />
 		<Unit filename="png/ground_top.png" />
 		<Unit filename="png/jam.png" />
+		<Unit filename="png/menu/grabber.png" />
+		<Unit filename="png/menu/grabber_hover.png" />
 		<Unit filename="png/menu/hover_button.png" />
 		<Unit filename="png/menu/label.png" />
 		<Unit filename="png/menu/play.png" />
+		<Unit filename="png/menu/slider.png" />
 		<Unit filename="png/player/fall.png" />
 		<Unit filename="png/player/idle.png" />
 		<Unit filename="png/player/jump.png" />
@@ -163,6 +167,7 @@
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/ground.cpp" />
 		<Unit filename="src/jam.cpp" />
+		<Unit filename="src/label.cpp" />
 		<Unit filename="src/level.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/player.cpp" />
