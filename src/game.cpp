@@ -3,6 +3,7 @@
 #include <vector>
 #include "../include/game.hpp"
 #include "../include/MainMenu.hpp"
+#include "../include/MapParser.hpp"
 #include "../include/level.hpp"
 #include "../include/background.hpp"
 #include "../include/cloud.hpp"
@@ -37,7 +38,6 @@ Game::Game(sf::RenderWindow &window)
             mousePressed = false;
             mouseReleased = false;
 
-
             if (event.type == sf::Event::MouseButtonPressed)
             {
                 mousePressed = true;
@@ -52,15 +52,11 @@ Game::Game(sf::RenderWindow &window)
             }
         }
 
-        if (music.getStatus() == sf::Music::Stopped)
-        {
-            music.play();
-        }
+        if (music.getStatus() == sf::Music::Stopped) { music.play(); }
 
         window.clear();
 
         int scene_to = Update(window, scene, menu, level);
-
         if ( scene_to != -1 )
         {
             scene = scene_to;
@@ -75,55 +71,24 @@ Game::Game(sf::RenderWindow &window)
 
                 case 1:
                 {
-                    string tileMap[] =
-                    {
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "B", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "J", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "GT", "GT", "GT", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "J", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "GT", "GT", "GT",
-                        "0", "0", "0", "P", "0", "0", "Tu", "0", "0", "0", "0", "0", "0", "0", "0", "R", "0", "G", "G", "G",
-                        "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "GT", "G", "G", "G",
-                    };
+                    mapFile = new MapFile("maps/level1.tmx");
 
-                    string backMap[] =
-                    {
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "H", "0", "0", "0", "0", "0", "T", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                        "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0",
-                    };
+                    mapWidth = mapFile->FindMapWidth();
+                    mapHeight = mapFile->FindMapHeight();
 
-                    string labelsMap[] =
-                    {
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "Here'll be Tutorial instruction\nin the next update! ;D", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                        "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-                    };
+                    backMap = mapFile->GetTiles("Back", "0");
+                    labelMap = mapFile->GetTiles("Labels", "0");
+                    tileMap = mapFile->GetTiles("Objects", "G");
 
-                    level = new Level(tileMap, backMap, labelsMap, 20, 12);
+                    cameraX = 0;
+
+                    level = new Level(backMap, labelMap, tileMap, mapWidth, mapHeight);
+
+                    (*level).SetLabelText(0, "Press arrow keys for moving character.");
+                    (*level).SetLabelText(1, "You can jump by pressing Space.");
+                    (*level).SetLabelText(2, "You can do this twice!");
+                    (*level).SetLabelText(3, "If you jump on an enemy head, you defeat it.\notherwise you'll lose!");
+                    (*level).SetLabelText(4, "Collect all jams on the level\nfor going to a next level!");
                 }
                 break;
             }
@@ -191,30 +156,48 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
         }
 
         (*level).player->Update( (*level).grounds );
+        cameraX = (*level).player->Camera();
+        (*level).player->SetSoundsVolume(soundsVolume);
+
+        for ( unsigned int i=0; i < (*level).jams.size(); i++ )
+        {
+            (*level).jams.at(i)->Update();
+        }
+        for ( unsigned int i=0; i < (*level).turtles.size(); i++ )
+        {
+            (*level).turtles.at(i)->Update( (*level).player, (*level).grounds );
+            (*level).turtles.at(i)->SetSoundsVolume(soundsVolume);
+        }
+        for ( unsigned int i=0; i < (*level).rabbits.size(); i++ )
+        {
+            (*level).rabbits.at(i)->Update( (*level).player, (*level).grounds );
+            (*level).rabbits.at(i)->SetSoundsVolume(soundsVolume);
+        }
+        for ( unsigned int i=0; i < (*level).birds.size(); i++ )
+        {
+            (*level).birds.at(i)->Update( (*level).player );
+            (*level).birds.at(i)->SetSoundsVolume(soundsVolume);
+        }
 
         int pick_up_jam = (*level).player->PickUpJam( (*level).jams );
-
         if ( pick_up_jam != -1 )
         {
             (*level).jams.erase((*level).jams.begin() + pick_up_jam );
         }
 
         int contacted_turtle = (*level).player->ContactWithTurtle( (*level).turtles );
-
         if ( contacted_turtle != -1 )
         {
             (*level).turtles.erase((*level).turtles.begin() + contacted_turtle );
         }
 
         int contacted_rabbit = (*level).player->ContactWithRabbit( (*level).rabbits );
-
         if ( contacted_rabbit != -1 )
         {
             (*level).rabbits.erase((*level).rabbits.begin() + contacted_rabbit );
         }
 
         int contacted_bird = (*level).player->ContactWithBird( (*level).birds );
-
         if ( contacted_bird != -1 )
         {
             (*level).birds.erase((*level).birds.begin() + contacted_bird );
@@ -224,30 +207,6 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
         {
             return scene;
         }
-
-        (*level).player->SetSoundsVolume(soundsVolume);
-
-        for ( unsigned int i=0; i < (*level).jams.size(); i++ )
-        {
-            (*level).jams.at(i)->Update();
-        }
-         for ( unsigned int i=0; i < (*level).turtles.size(); i++ )
-        {
-            (*level).turtles.at(i)->Update( (*level).player, (*level).grounds );
-            (*level).turtles.at(i)->SetSoundsVolume(soundsVolume);
-        }
-         for ( unsigned int i=0; i < (*level).rabbits.size(); i++ )
-        {
-            (*level).rabbits.at(i)->Update( (*level).player, (*level).grounds );
-            (*level).rabbits.at(i)->SetSoundsVolume(soundsVolume);
-        }
-         for ( unsigned int i=0; i < (*level).birds.size(); i++ )
-        {
-            (*level).birds.at(i)->Update( (*level).player );
-            (*level).birds.at(i)->SetSoundsVolume(soundsVolume);
-        }
-
-        cameraX = (*level).player->Camera();
     }
 
     return -1;

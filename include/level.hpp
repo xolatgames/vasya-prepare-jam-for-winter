@@ -27,7 +27,7 @@ class Bird;
 class Level
 {
 public:
-    Level(string tileMap[], string backMap[], string labelsMap[], int sizeX, int sizeY);
+    Level(vector<string> backMap, vector<string> labelsMap, vector<string> tileMap, int sizeX, int sizeY);
 
     Background *background;
 
@@ -42,6 +42,7 @@ public:
     vector<Rabbit*> rabbits;
     vector<Bird*> birds;
 
+    void SetLabelText(int idx, string text);
     void UI(sf::RenderWindow &window);
 
     sf::Font font;

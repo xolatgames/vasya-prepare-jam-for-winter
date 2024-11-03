@@ -70,7 +70,7 @@ public:
     const float decelerationX = 0.1;
     const float maxSpeedX = 6;
     const float gravityForce = 0.2;
-    const float maxFallSpeed = 8;
+    const float maxFallSpeed = 12;
     const float jumpForce = 8;
 
     bool grounded;

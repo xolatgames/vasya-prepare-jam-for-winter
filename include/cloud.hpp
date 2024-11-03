@@ -18,6 +18,9 @@ public:
     float x;
     float y;
     float speed;
+
+    float leftBorder = -128;
+    float rightBorder = 1408;
 };
 
 #endif // CLOUD_H

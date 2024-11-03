@@ -4,6 +4,9 @@
 #include "../include/player.hpp"
 #include "../include/ground.hpp"
 #include "../include/jam.hpp"
+#include "../include/enemy/turtle.hpp"
+#include "../include/enemy/rabbit.hpp"
+#include "../include/enemy/bird.hpp"
 
 using namespace std;
 
@@ -59,6 +62,8 @@ void Player::Update(vector<Ground*> grounds)
         mask.top += 16;
         mask.height -= 16;
 
+        Input();
+
         if (speedX < -decelerationX)
         {
             speedX += decelerationX;
@@ -83,12 +88,7 @@ void Player::Update(vector<Ground*> grounds)
 
         speedY += gravityForce;
 
-        if (speedY > maxFallSpeed)
-        {
-            speedY = maxFallSpeed;
-        }
-
-        Input();
+        if (speedY > maxFallSpeed) { speedY = maxFallSpeed; }
 
         grounded = false;
 
@@ -101,10 +101,8 @@ void Player::Update(vector<Ground*> grounds)
 
             if (rect.intersects(ground->sprite.getGlobalBounds()))
             {
-                if ( (speedY > 1)||(speedY < -0.5) )
-                {
-                    walkSound.play();
-                }
+                if ( (speedY > 1)||(speedY < -0.5) ) { walkSound.play(); }
+
                 if (speedY > 0)
                 {
                     jumpNumber = 2;
@@ -148,10 +146,7 @@ void Player::Update(vector<Ground*> grounds)
 
         ChangeAnimation();
 
-        if ( sprite.getPosition().y > 900 )
-        {
-            Lose();
-        }
+        if ( sprite.getPosition().y > 900 ) { Lose(); }
     }
     else
     {
@@ -247,10 +242,7 @@ void Player::ChangeAnimation()
     }
 
     spriteFrame += 1;
-    if (spriteFrame > 40)
-    {
-        spriteFrame = 0;
-    }
+    if (spriteFrame > 40) { spriteFrame = 0; }
 
     switch (side)
     {
@@ -305,16 +297,16 @@ int Player::ContactWithTurtle(vector<Turtle*> turtles)
 
             if (rect.intersects(turtle->mask))
             {
-                if ( (speedY > 0)&&(!mask.intersects(turtle->mask)) )
+                if (turtle->active)
                 {
-                    speedY = -push_from_enemy_force;
-                    jumpSound.play();
-                    jumpNumber = 1;
-                    return i;
-                }
-                else
-                {
-                    Lose();
+                    if ( (speedY > 0)&&(!mask.intersects(turtle->mask)) )
+                    {
+                        speedY = -push_from_enemy_force;
+                        jumpSound.play();
+                        jumpNumber = 1;
+                        return i;
+                    }
+                    else { Lose(); }
                 }
             }
         }
@@ -336,16 +328,16 @@ int Player::ContactWithRabbit(vector<Rabbit*> rabbits)
 
             if (rect.intersects(rabbit->mask))
             {
-                if ( (speedY > 0)&&(!mask.intersects(rabbit->mask)) )
+                if (rabbit->active)
                 {
-                    speedY = -push_from_enemy_force;
-                    jumpSound.play();
-                    jumpNumber = 1;
-                    return i;
-                }
-                else
-                {
-                    Lose();
+                    if ( (speedY > 0)&&(!mask.intersects(rabbit->mask)) )
+                    {
+                        speedY = -push_from_enemy_force;
+                        jumpSound.play();
+                        jumpNumber = 1;
+                        return i;
+                    }
+                    else { Lose(); }
                 }
             }
         }
@@ -367,16 +359,16 @@ int Player::ContactWithBird(vector<Bird*> birds)
 
             if (rect.intersects(bird->mask))
             {
-                if ( (speedY > 0)&&(!mask.intersects(bird->mask)) )
+                if (bird->active)
                 {
-                    speedY = -push_from_enemy_force;
-                    jumpSound.play();
-                    jumpNumber = 1;
-                    return i;
-                }
-                else
-                {
-                    Lose();
+                    if ( (speedY > 0)&&(!mask.intersects(bird->mask)) )
+                    {
+                        speedY = -push_from_enemy_force;
+                        jumpSound.play();
+                        jumpNumber = 1;
+                        return i;
+                    }
+                    else { Lose(); }
                 }
             }
         }

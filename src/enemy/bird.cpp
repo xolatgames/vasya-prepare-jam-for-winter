@@ -18,6 +18,8 @@ Bird::Bird(float x, float y)
     wingsSound.setBuffer(wingsBuffer);
 
     spriteFrame = 0;
+
+    active = false;
 }
 
 void Bird::Update(Player* player)
@@ -43,9 +45,14 @@ void Bird::Update(Player* player)
         distance = distance_calculation.y;
     }
 
+    if ( distance < activate_distance )
+    {
+        active = true;
+    }
+
     direction = direction / distance;
 
-    if (distance > minDistance)
+    if ( (distance > minDistance)&&(active) )
     {
         sprite.move(direction * speed);
     }
@@ -65,16 +72,13 @@ void Bird::ChangeAnimation()
         case 10:
         {
             sprite.setTexture(texture2);
-            wingsSound.play();
+            if (active) { wingsSound.play(); }
         }
         break;
     }
 
     spriteFrame += 1;
-    if (spriteFrame > 20)
-    {
-        spriteFrame = 0;
-    }
+    if (spriteFrame > 20) { spriteFrame = 0; }
 
     if (direction.x > 0)
     {

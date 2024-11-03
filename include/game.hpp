@@ -5,6 +5,7 @@
 #include <SFML/Audio.hpp>
 #include <vector>
 #include "MainMenu.hpp"
+#include "MapParser.hpp"
 #include "level.hpp"
 #include "background.hpp"
 #include "cloud.hpp"
@@ -12,6 +13,8 @@
 #include "player.hpp"
 #include "ground.hpp"
 #include "jam.hpp"
+
+using namespace std;
 
 class Game
 {
@@ -34,7 +37,14 @@ public:
     int test_sound_delay;
 
     MainMenu *menu;
+    MapFile *mapFile;
+    vector<string> backMap;
+    vector<string> labelMap;
+    vector<string> tileMap;
     Level *level;
+
+    int mapWidth;
+    int mapHeight;
 
     float cameraX;
 

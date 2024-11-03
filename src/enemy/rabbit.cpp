@@ -21,7 +21,9 @@ Rabbit::Rabbit(float x, float y)
 
     side = Side::Left;
 
-    jump_delay = 60;
+    active = false;
+
+    jump_timer = jump_delay;
 }
 
 void Rabbit::Update(Player* player, vector<Ground*> grounds)
@@ -45,12 +47,11 @@ void Rabbit::Update(Player* player, vector<Ground*> grounds)
         distance = distance_calculation.y;
     }
 
+    if ( distance < activate_distance ) { active = true; }
+
     speedY += gravityForce;
 
-    if (speedY > maxFallSpeed)
-    {
-        speedY = maxFallSpeed;
-    }
+    if (speedY > maxFallSpeed) { speedY = maxFallSpeed; }
 
     for ( unsigned int i=0; i < grounds.size(); i++ )
     {
@@ -67,9 +68,9 @@ void Rabbit::Update(Player* player, vector<Ground*> grounds)
                 speedX = 0;
                 speedY = 0;
 
-                if (jump_delay < 0)
+                if (jump_timer < 0)
                 {
-                    jump_delay = 60;
+                    jump_timer = jump_delay;
                 }
             }
             else
@@ -111,11 +112,8 @@ void Rabbit::Update(Player* player, vector<Ground*> grounds)
 
     sprite.move(sf::Vector2f(speedX, 0));
 
-    jump_delay -= 1;
-    if (jump_delay == 0)
-    {
-        Hop();
-    }
+    if (active) { jump_timer -= 1; }
+    if (jump_timer == 0) { Hop(); }
 
     ChangeAnimation();
 }

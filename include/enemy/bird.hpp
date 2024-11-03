@@ -34,6 +34,9 @@ public:
 
     int spriteFrame;
 
+    bool active;
+    const float activate_distance = 640;
+
     const float speed = 3;
 
     sf::Vector2f distance_calculation;

@@ -37,7 +37,16 @@ public:
 
     int spriteFrame;
 
+    bool active;
+    const float activate_distance = 640;
+
     float speedX;
+    float speedY;
+
+    const float gravityForce = 0.2;
+    const float maxFallSpeed = 8;
+
+    bool bottom_empty;
 
     sf::Vector2f distance_calculation;
     float distance;

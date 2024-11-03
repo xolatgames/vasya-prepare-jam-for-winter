@@ -22,7 +22,8 @@ Turtle::Turtle(float x, float y)
 
     spriteFrame = 0;
 
-    speedX = 3;
+    speedX = -3;
+    speedY = 0;
 }
 
 void Turtle::Update(Player* player, vector<Ground*> grounds)
@@ -46,6 +47,28 @@ void Turtle::Update(Player* player, vector<Ground*> grounds)
         distance = distance_calculation.y;
     }
 
+    if ( distance < activate_distance ) { active = true; }
+
+    speedY += gravityForce;
+
+    if (speedY > maxFallSpeed) { speedY = maxFallSpeed; }
+
+    for ( unsigned int i=0; i < grounds.size(); i++ )
+    {
+        Ground *ground = grounds.at(i);
+
+        sf::FloatRect rect = mask;
+        rect.top += speedY;
+
+        if (rect.intersects(ground->sprite.getGlobalBounds()))
+        {
+            sprite.setPosition(sf::Vector2f(sprite.getPosition().x, ground->sprite.getGlobalBounds().top - 32));
+            speedY = 0;
+        }
+    }
+
+    if (active) { sprite.move(sf::Vector2f(0, speedY)); }
+
     for ( unsigned int i=0; i < grounds.size(); i++ )
     {
         Ground *ground = grounds.at(i);
@@ -59,7 +82,40 @@ void Turtle::Update(Player* player, vector<Ground*> grounds)
         }
     }
 
-    sprite.move(sf::Vector2f(speedX, 0));
+    bottom_empty = true;
+
+    for ( unsigned int i=0; i < grounds.size(); i++ )
+    {
+        Ground *ground = grounds.at(i);
+
+        sf::FloatRect rect = mask;
+        rect.left += speedX;
+        rect.top += 4;
+
+        if (rect.intersects(ground->sprite.getGlobalBounds()))
+        {
+            bottom_empty = false;
+        }
+    }
+
+    if (bottom_empty)
+    {
+        for ( unsigned int i=0; i < grounds.size(); i++ )
+        {
+            Ground *ground = grounds.at(i);
+
+            sf::FloatRect rect = mask;
+            rect.left -= speedX;
+            rect.top += 4;
+
+            if (rect.intersects(ground->sprite.getGlobalBounds()))
+            {
+                speedX = -speedX;
+            }
+        }
+    }
+
+    if (active) { sprite.move(sf::Vector2f(speedX, 0)); }
 
     ChangeAnimation();
 }
@@ -76,16 +132,13 @@ void Turtle::ChangeAnimation()
         case 10:
         {
             sprite.setTexture(texture2);
-            walkSound.play();
+            if (active) { walkSound.play(); }
         }
         break;
     }
 
     spriteFrame += 1;
-    if (spriteFrame > 20)
-    {
-        spriteFrame = 0;
-    }
+    if (spriteFrame > 20) { spriteFrame = 0; }
 
     if (speedX > 0)
     {

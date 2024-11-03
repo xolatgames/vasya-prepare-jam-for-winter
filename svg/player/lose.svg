@@ -27,7 +27,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="5.543368"
-     inkscape:cx="23.541645"
+     inkscape:cx="23.72204"
      inkscape:cy="41.491021"
      inkscape:window-width="1440"
      inkscape:window-height="828"
@@ -89,7 +89,7 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#aa0000;stroke:#000000;stroke-width:0.529167;stroke-dasharray:none"
-       d="M 6.3499998,4.2333332 5.2916665,1.0583333 7.4083331,2.1166666 8.4666664,1.0583333 9.5249997,2.1166666 11.641666,1.0583333 10.583333,4.2333332 H 9.5249997 L 8.4666664,5.2916665 7.4083331,4.2333332 Z"
+       d="M 6.3499998,3.1749999 5.2916665,1.0583333 7.4083331,2.1166666 8.4666664,1.0583333 9.5249997,2.1166666 11.641666,1.0583333 10.583333,3.1749999 9.5249997,4.2333332 8.4666664,3.1749999 7.4083331,4.2333332 Z"
        id="path5"
        sodipodi:nodetypes="ccccccccccc" />
     <path
@@ -99,22 +99,22 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:bevel"
-       d="M 7.408333,5.2916663 6.3499998,7.4083331"
+       d="M 7.408333,5.2916663 5.2916665,7.4083331"
        id="path10"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:bevel"
-       d="M 6.3499998,5.2916665 7.408333,7.408333"
+       d="M 5.2916665,5.2916665 7.408333,7.408333"
        id="path11"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:bevel"
-       d="M 9.5249997,5.2916665 10.583333,7.4083331"
+       d="M 9.5249997,5.2916665 11.641666,7.4083331"
        id="path12"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:bevel"
-       d="M 10.583333,5.2916665 9.5249996,7.408333"
+       d="M 11.641666,5.2916665 9.5249996,7.408333"
        id="path13"
        sodipodi:nodetypes="cc" />
     <path

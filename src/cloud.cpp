@@ -26,13 +26,13 @@ void Cloud::Update()
 {
     sprite.move(sf::Vector2f(-speed / 5, 0));
 
-    if ( sprite.getPosition().x < -128 )
+    if ( sprite.getPosition().x < leftBorder )
     {
-        sprite.setPosition(sf::Vector2f(1408, y));
+        sprite.setPosition(sf::Vector2f(rightBorder, y));
     }
-    else if ( sprite.getPosition().x > 1408 )
+    else if ( sprite.getPosition().x > rightBorder )
     {
-        sprite.setPosition(sf::Vector2f(-128, y));
+        sprite.setPosition(sf::Vector2f(leftBorder, y));
     }
 }
 

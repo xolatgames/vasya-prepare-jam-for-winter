@@ -130,7 +130,7 @@
 	<vector>
 	"cloud.hpp"
 
-1730386864 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/cloud.hpp
+1730643357 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/cloud.hpp
 	<SFML/Graphics.hpp>
 
 1730388479 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/backTexture.cpp
@@ -140,18 +140,19 @@
 1730388459 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/backTexture.hpp
 	<SFML/Graphics.hpp>
 
-1730388574 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/cloud.cpp
+1730643379 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/cloud.cpp
 	<SFML/Graphics.hpp>
 	<random>
 	<ctime>
 	"../include/cloud.hpp"
 
-1730471204 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/game.cpp
+1730645500 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/game.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"../include/game.hpp"
 	"../include/MainMenu.hpp"
+	"../include/MapParser.hpp"
 	"../include/level.hpp"
 	"../include/background.hpp"
 	"../include/cloud.hpp"
@@ -160,11 +161,12 @@
 	"../include/ground.hpp"
 	"../include/jam.hpp"
 
-1730469984 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/game.hpp
+1730643589 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/game.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"MainMenu.hpp"
+	"MapParser.hpp"
 	"level.hpp"
 	"background.hpp"
 	"cloud.hpp"
@@ -183,7 +185,7 @@
 1730386904 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/jam.hpp
 	<SFML/Graphics.hpp>
 
-1730399128 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/level.hpp
+1730644871 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/level.hpp
 	<SFML/Graphics.hpp>
 	<vector>
 	"background.hpp"
@@ -196,7 +198,7 @@
 	"enemy/rabbit.hpp"
 	"enemy/bird.hpp"
 
-1730470836 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/player.hpp
+1730643676 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/player.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -217,7 +219,7 @@
 	<SFML/Graphics.hpp>
 	"../include/jam.hpp"
 
-1730411397 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/level.cpp
+1730644917 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/level.cpp
 	<SFML/Graphics.hpp>
 	<vector>
 	"../include/level.hpp"
@@ -237,57 +239,509 @@
 	"../include/MainMenu.hpp"
 	"../include/background.hpp"
 
-1730470958 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/player.cpp
+1730643867 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/player.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"../include/player.hpp"
 	"../include/ground.hpp"
 	"../include/jam.hpp"
+	"../include/enemy/turtle.hpp"
+	"../include/enemy/rabbit.hpp"
+	"../include/enemy/bird.hpp"
 
-1730470876 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/turtle.hpp
+1730642278 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/turtle.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"../player.hpp"
 	"../ground.hpp"
 
-1730470871 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/rabbit.hpp
+1730643684 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/rabbit.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"../player.hpp"
 	"../ground.hpp"
 
-1730470861 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/bird.hpp
+1730642293 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/enemy/bird.hpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../../include/player.hpp"
 
-1730471018 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/turtle.cpp
+1730642858 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/turtle.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"../../include/enemy/turtle.hpp"
 	"../../include/ground.hpp"
 
-1730471004 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/rabbit.cpp
+1730642838 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/rabbit.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"../../include/enemy/rabbit.hpp"
 	"../../include/ground.hpp"
 
-1730470988 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/bird.cpp
+1730642896 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/enemy/bird.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../../include/enemy/bird.hpp"
 	"../../include/player.hpp"
 
-1730398848 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/label.hpp
+1730644654 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/label.hpp
 	<SFML/Graphics.hpp>
 
-1730409783 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/label.cpp
+1730644647 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/label.cpp
 	<SFML/Graphics.hpp>
 	"../include/label.hpp"
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/DebugShape.cpp
+	<tmx/DebugShape.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/DebugShape.hpp
+	<tmx/Export.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/Export.hpp
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/Log.cpp
+	<tmx/Log.hpp>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/Log.hpp
+	<tmx/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+	<iostream>
+	<fstream>
+	<Windows.h>
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/MapLayer.cpp
+	<tmx/MapLayer.hpp>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/MapLayer.hpp
+	<tmx/MapObject.hpp>
+	<tmx/Export.hpp>
+	<memory>
+	<array>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/MapObject.hpp
+	<tmx/Helpers.hpp>
+	<tmx/DebugShape.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+	<vector>
+	<map>
+	<iostream>
+	<memory>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/Helpers.hpp
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+	<cmath>
+	<cassert>
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/MapLoaderPrivate.cpp
+	<tmx/MapLoader.hpp>
+	<tmx/Log.hpp>
+	"miniz.h"
+	<cstring>
+	<sstream>
+	<functional>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/MapLoader.hpp
+	<tmx/QuadTreeNode.hpp>
+	<tmx/MapLayer.hpp>
+	<pugixml/pugixml.hpp>
+	<array>
+	<cassert>
+	<bitset>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/tmx/QuadTreeNode.hpp
+	<tmx/MapObject.hpp>
+	<memory>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/pugixml/pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/include/pugixml/pugiconfig.hpp
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/MapLoaderPublic.cpp
+	<tmx/MapLoader.hpp>
+	<tmx/Log.hpp>
+	<cassert>
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/MapObject.cpp
+	<tmx/MapObject.hpp>
+	<tmx/MapLayer.hpp>
+	<tmx/Log.hpp>
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/pugixml/pugixml.cpp
+	<pugixml/pugixml.hpp>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<setjmp.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/QuadTreeNode.cpp
+	<tmx/QuadTreeNode.hpp>
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/miniz.h
+	"miniz.c"
+
+1730542381 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/miniz.c
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<assert.h>
+	<stdio.h>
+	<sys/stat.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<utime.h>
+	<utime.h>
+
+1730542381 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/sfml-tmxloader/src/miniz.c
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<assert.h>
+	<stdio.h>
+	<sys/stat.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<utime.h>
+	<utime.h>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/miniz.c
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<assert.h>
+	<stdio.h>
+	<sys/stat.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<utime.h>
+	<utime.h>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/base64/base64.cpp
+	<base64/base64.h>
+	<iostream>
+	<stdlib.h>
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/base64/base64.h
+	<string>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxColor.cpp
+	"TmxColor.h"
+	<cstdio>
+	<cstdlib>
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxColor.h
+	<string>
+	<cstdint>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxEllipse.cpp
+	"TmxEllipse.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxEllipse.h
+	<vector>
+	"TmxPoint.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxPoint.h
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxGroupLayer.cpp
+	<tinyxml2.h>
+	<cstdlib>
+	<cassert>
+	<cstring>
+	"TmxLayer.h"
+	"TmxGroupLayer.h"
+	"TmxTileLayer.h"
+	"TmxObjectGroup.h"
+	"TmxImageLayer.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxLayer.h
+	<string>
+	"TmxPropertySet.h"
+	"TmxMapTile.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxPropertySet.h
+	<unordered_map>
+	<map>
+	<string>
+	"TmxProperty.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxProperty.h
+	<string>
+	"TmxColor.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxMapTile.h
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxGroupLayer.h
+	<string>
+	<vector>
+	"TmxLayer.h"
+	"TmxPropertySet.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxTileLayer.h
+	<string>
+	"TmxLayer.h"
+	"TmxPropertySet.h"
+	"TmxMapTile.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxObjectGroup.h
+	<string>
+	<vector>
+	"TmxLayer.h"
+	"TmxPropertySet.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxImageLayer.h
+	<string>
+	<vector>
+	"TmxLayer.h"
+	"TmxPropertySet.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxImage.cpp
+	<tinyxml2.h>
+	"TmxImage.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxImage.h
+	<string>
+	"TmxColor.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxImageLayer.cpp
+	<tinyxml2.h>
+	<cstdlib>
+	<cassert>
+	"TmxLayer.h"
+	"TmxImageLayer.h"
+	"TmxImage.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxLayer.cpp
+	<tinyxml2.h>
+	<algorithm>
+	"miniz.c"
+	<zlib.h>
+	<stdlib.h>
+	<stdio.h>
+	"TmxLayer.h"
+	"TmxUtil.h"
+	"TmxMap.h"
+	"TmxTileset.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/miniz.c
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<assert.h>
+	<stdio.h>
+	<sys/stat.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<sys/utime.h>
+	<utime.h>
+	<utime.h>
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxUtil.h
+	<string>
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxMap.h
+	<vector>
+	<string>
+	"TmxPropertySet.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxTileset.h
+	<string>
+	<vector>
+	"TmxPropertySet.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxMap.cpp
+	<tinyxml2.h>
+	<stdio.h>
+	"TmxMap.h"
+	"TmxTileset.h"
+	"TmxLayer.h"
+	"TmxTileLayer.h"
+	"TmxObjectGroup.h"
+	"TmxImageLayer.h"
+	"TmxGroupLayer.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxObject.cpp
+	<tinyxml2.h>
+	"TmxObject.h"
+	"TmxPolygon.h"
+	"TmxPolyline.h"
+	"TmxEllipse.h"
+	"TmxText.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxObject.h
+	<string>
+	"TmxPropertySet.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxPolygon.h
+	<vector>
+	"TmxPoint.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxPolyline.h
+	<vector>
+	"TmxPoint.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxText.h
+	<vector>
+	"TmxColor.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxObjectGroup.cpp
+	<tinyxml2.h>
+	"TmxLayer.h"
+	"TmxObjectGroup.h"
+	"TmxObject.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxPolygon.cpp
+	<tinyxml2.h>
+	<cstdlib>
+	"TmxPolygon.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxPolyline.cpp
+	<tinyxml2.h>
+	<cstdlib>
+	"TmxPolyline.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxProperty.cpp
+	<tinyxml2.h>
+	"TmxProperty.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxPropertySet.cpp
+	<tinyxml2.h>
+	<cstdlib>
+	"TmxPropertySet.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxTerrain.cpp
+	<tinyxml2.h>
+	"TmxTerrain.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxTerrain.h
+	<vector>
+	"TmxPropertySet.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxTerrainArray.cpp
+	<tinyxml2.h>
+	<cstdlib>
+	"TmxTerrainArray.h"
+	"TmxTerrain.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxTerrainArray.h
+	<map>
+	<string>
+	<vector>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxText.cpp
+	"TmxText.h"
+	<tinyxml2.h>
+	<cstdlib>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxTile.cpp
+	<tinyxml2.h>
+	"TmxTile.h"
+	"TmxObject.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxTile.h
+	<vector>
+	"TmxPropertySet.h"
+	"TmxImage.h"
+	"TmxObjectGroup.h"
+	<stdexcept>
+	<string>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxTileLayer.cpp
+	<tinyxml2.h>
+	<algorithm>
+	"miniz.c"
+	<zlib.h>
+	<stdlib.h>
+	<stdio.h>
+	"TmxLayer.h"
+	"TmxTileLayer.h"
+	"TmxUtil.h"
+	"TmxMap.h"
+	"TmxTileset.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxTileOffset.cpp
+	<tinyxml2.h>
+	"TmxTileOffset.h"
+
+1730543543 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/include/TmxTileOffset.h
+	<string>
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxTileset.cpp
+	<tinyxml2.h>
+	<cassert>
+	"TmxTileset.h"
+	"TmxTileOffset.h"
+	"TmxTerrainArray.h"
+	"TmxTerrain.h"
+	"TmxImage.h"
+	"TmxTile.h"
+	"TmxMap.h"
+
+1730543543 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/tmxparser/src/TmxUtil.cpp
+	<stdlib.h>
+	<algorithm>
+	<cctype>
+	<functional>
+	"miniz.c"
+	<zlib.h>
+	<stdio.h>
+	"TmxUtil.h"
+	"base64/base64.h"
+
+1730636146 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/JSONMapParser.hpp
+	<fstream>
+	<vector>
+
+1730637864 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/JSONMapParser.cpp
+	<fstream>
+	<vector>
+	"../include/JSONMapParser.hpp"
+
+1730642202 /home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/include/MapParser.hpp
+	<fstream>
+	<vector>
+
+1730644758 source:/home/ilyuha/Projects/GitHub/vasya-prepare-jam-for-winter/src/MapParser.cpp
+	<fstream>
+	<vector>
+	"../include/MapParser.hpp"
 

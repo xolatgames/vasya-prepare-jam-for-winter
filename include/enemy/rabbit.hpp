@@ -38,7 +38,12 @@ public:
     enum Side { Left, Right };
     int side;
 
-    int jump_delay;
+    bool active;
+    const float activate_distance = 640;
+
+    int jump_timer;
+
+    const int jump_delay = 60;
 
     float speedX;
     float speedY;
@@ -46,7 +51,7 @@ public:
     const float jumpForceX = 4;
     const float jumpForceY = 10;
     const float gravityForce = 0.2;
-    const float maxFallSpeed = 8;
+    const float maxFallSpeed = 12;
 
     sf::Vector2f distance_calculation;
     float distance;

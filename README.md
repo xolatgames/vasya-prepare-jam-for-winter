@@ -14,6 +14,16 @@ https://github.com/user-attachments/assets/256dd21c-5892-4202-8a4c-6f169f080b9c
 
   SFML : **https://www.sfml-dev.org/index.php** ;
 
+#### For create your own maps:
+
+  Download Tiled The Map Editor : **https://www.mapeditor.org/** ;
+
+  *P.S: Map parser file is available here: https://github.com/xolatgames/vasya-prepare-jam-for-winter/blob/main/src/MapParser.cpp*
+
+  *you can try to use it for your own projects. It's my development 😉*
+
+  *But in any case you must leave the attribute: "Thanks to xolatgames for contribute!" or something like that...*
+
 #### Roadmap[] =
 
     {
@@ -29,6 +39,8 @@ https://github.com/user-attachments/assets/256dd21c-5892-4202-8a4c-6f169f080b9c
        ✔️ Turtles 🐢 , Rabbits 🐇 and Birds 🐦 as enemies ,
 
        ✔️ Changing sounds and music volume ,
+
+       ✔️ Add map parser ,
 
        ❌ Create 3 levels at least 🕹️
 
@@ -72,6 +84,8 @@ https://github.com/user-attachments/assets/256dd21c-5892-4202-8a4c-6f169f080b9c
 **Profit! 👌🏼 Have a nice play! 😉**
 
 #### Additional software:
+
+  Tiled The Map Editor: **https://www.mapeditor.org/** ;
 
   InkScape : **https://inkscape.org/ru/release/inkscape-1.4/** ;
 
