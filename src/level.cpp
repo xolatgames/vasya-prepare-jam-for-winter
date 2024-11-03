@@ -49,8 +49,7 @@ Level::Level(vector<string> backMap, vector<string> labelMap, vector<string> til
             {
                 player = new Player(x * 64, y * 64 + 64);
             }
-
-            if ( tileMap.at(tile) == "GT" )
+            else if ( tileMap.at(tile) == "GT" )
             {
                 grounds.push_back(new Ground(Ground::Top, x * 64, y * 64 + 64));
             }
