@@ -4,19 +4,25 @@
 
 #### Music by timbeek.com
 
-https://github.com/user-attachments/assets/256dd21c-5892-4202-8a4c-6f169f080b9c
+![Thumbnail](https://github.com/user-attachments/assets/17f0ffd8-aae4-410b-a0d9-44213a447b99)
 
   **Thanks to https://github.com/45P3R4/ for some code review 😉**
 
 #### The IDE that used in this project: Code::Block (https://www.codeblocks.org/)
 
+#### The Compilers that used for this game:
+
+  For Windows 🪟 : **https://www.mingw-w64.org/**
+
+  For Linux 🐧 : **https://gcc.gnu.org/**
+
 #### Third-party libraries that must have for this:
 
-  SFML : **https://www.sfml-dev.org/index.php** ;
+  SFML : **https://www.sfml-dev.org/index.php**
 
 #### For create your own maps:
 
-  Download Tiled The Map Editor : **https://www.mapeditor.org/** ;
+  Download Tiled The Map Editor : **https://www.mapeditor.org/**
 
   *P.S: Map parser file is available here: https://github.com/xolatgames/vasya-prepare-jam-for-winter/blob/main/src/MapParser.cpp*
 
@@ -24,69 +30,58 @@ https://github.com/user-attachments/assets/256dd21c-5892-4202-8a4c-6f169f080b9c
 
   *But in any case you must leave the attribute: "Thanks to xolatgames for contribute!" or something like that...*
 
-#### Roadmap[] =
+#### Roadmap:
 
-    {
+  ✔️ Main menu 📋
 
-       ✔️ Main menu 📋 ,
+  ✔️ Beautiful background ⛅
 
-       ✔️ Beautiful background ⛅ ,
+  ✔️ The walking and jumping character 🚶🏻
 
-       ✔️ The walking and jumping character 🚶🏻 ,
+  ✔️ Sounds 🎵 and music 🎶
 
-       ✔️ Sounds 🎵 and music 🎶 ,
+  ✔️ Turtles 🐢 , Rabbits 🐇 and Birds 🐦 as enemies
 
-       ✔️ Turtles 🐢 , Rabbits 🐇 and Birds 🐦 as enemies ,
+  ✔️ Changing sounds and music volume
 
-       ✔️ Changing sounds and music volume ,
+  ✔️ Add map parser
 
-       ✔️ Add map parser ,
+  ❌ Create 3 levels at least 🕹️
 
-       ❌ Create 3 levels at least 🕹️
+#### How to build:
 
-    } ;
+  1. Install Code::Blocks IDE -> **https://www.codeblocks.org/**
 
-#### How to build[] =
+  2. Download SFML library -> **https://www.sfml-dev.org/download/sfml/2.6.1/**
 
-    {
+  3. Open this project in Code::Blocks ( The project is located in *Vasya-prepare-jam-for-winter.cbp* file )
 
-      Install Code::Blocks IDE -> https://www.codeblocks.org/ ;
+  4. Do things in this instruction for setting up project -> **https://www.sfml-dev.org/tutorials/2.6/start-cb.php** *Yeap! It'll be hard for beginners!*
 
-      Download SFML library -> https://www.sfml-dev.org/download/sfml/2.6.1/ ;
+  5. If you wanna build the project on Windows: Download -> **https://winlibs.com/** , and then check setting up instructions for this compiler for Code::Blocks -> **https://winlibs.com/#usage-codeblocks** . If you don't use Windows, or if you don't want to build this project for Windows on Linux through Wine *( https://www.winehq.org/ )* - you can just skip this step 😉
 
-      Open this project in Code::Blocks ( The project is located in "Vasya-prepare-jam-for-winter.cbp" file ) ;
+  6. Open **"main.cpp"** in opened project
 
-      Do things in this instruction for setting up project -> https://www.sfml-dev.org/tutorials/2.6/start-cb.php , // Yeap! This will be hard for beginners! ;
+  7. Click on the gear in somewhere at the top menus *(Build)* , or just press **Ctrl + F9**
 
-      Open "main.cpp" in opened project ;
+  8. Got it! 👌🏼
 
-      Click on the gear in somewhere at the top menus (Build), or just press Ctrl + F9 ;
+#### How to launch:
 
-      Got it!
+  1. Open your file manager
 
-    } ;
+  2. Go to the project folder in your file manager
 
-#### How to launch[] =
+  3. Then locate to "/bin/Release"
 
-
-    {
-
-      Open your file manager ;
-
-      Go to the project folder in your file manager ;
-
-      Then locate to "/bin/Release" ;
-      
-      And launch "Vasya-prepare-jam-for-winter" !
-
-    } ;
+  4. And launch *Vasya-prepare-jam-for-winter* if you use Linux 🐧 , or *Vasya-prepare-jam-for-winter.exe* for Windows 🪟
 
 **Profit! 👌🏼 Have a nice play! 😉**
 
 #### Additional software:
 
-  Tiled The Map Editor: **https://www.mapeditor.org/** ;
+  Tiled The Map Editor: **https://www.mapeditor.org/**
 
-  InkScape : **https://inkscape.org/ru/release/inkscape-1.4/** ;
+  InkScape : **https://inkscape.org/ru/release/inkscape-1.4/**
 
-  The soft where I made sounds : **https://lmms.io/** ;
+  The soft where I made sounds : **https://lmms.io/**
