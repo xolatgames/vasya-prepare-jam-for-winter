@@ -62,7 +62,7 @@ All textures and sprites in this project are distribution under **CC-BY** licens
 
   5. If you wanna build the project on Windows: Download -> **https://winlibs.com/** , and then check setting up instructions for this compiler for Code::Blocks -> **https://winlibs.com/#usage-codeblocks** . If you don't use Windows, or if you don't want to build this project for Windows on Linux through Wine *( https://www.winehq.org/ )* - you can just skip this step 😉
 
-  6. Open **"main.cpp"** in opened project
+  6. Open **main.cpp** in opened project
 
   7. Click on the gear in somewhere at the top menus *(Build)* , or just press **Ctrl + F9**
 
@@ -76,7 +76,7 @@ All textures and sprites in this project are distribution under **CC-BY** licens
 
   3. Then locate to **/bin/Release**
 
-  4. And launch *Vasya-prepare-jam-for-winter* if you use Linux 🐧 , or *Vasya-prepare-jam-for-winter.exe* for Windows 🪟
+  4. And launch **Vasya-prepare-jam-for-winter** if you use Linux 🐧 , or **Vasya-prepare-jam-for-winter.exe** for Windows 🪟
 
 **Profit! 👌🏼 Have a nice play! 😉**
 
