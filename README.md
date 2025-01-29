@@ -74,7 +74,7 @@ All textures and sprites in this project are distribution under **CC-BY** licens
 
   2. Go to the project folder in your file manager
 
-  3. Then locate to "/bin/Release"
+  3. Then locate to **/bin/Release**
 
   4. And launch *Vasya-prepare-jam-for-winter* if you use Linux 🐧 , or *Vasya-prepare-jam-for-winter.exe* for Windows 🪟
 
