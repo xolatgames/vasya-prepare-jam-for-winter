@@ -5,7 +5,7 @@
 #include <SFML/Audio.hpp>
 #include <vector>
 #include "MainMenu.hpp"
-#include "MapParser.hpp"
+#include "MapFile.hpp"
 #include "level.hpp"
 #include "background.hpp"
 #include "cloud.hpp"
@@ -38,15 +38,11 @@ public:
 
     MainMenu *menu;
     MapFile *mapFile;
-    vector<string> backMap;
-    vector<string> labelMap;
-    vector<string> tileMap;
     Level *level;
 
-    int mapWidth;
-    int mapHeight;
-
     float cameraX;
+
+    int current_level;
 
 private:
     int Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level);

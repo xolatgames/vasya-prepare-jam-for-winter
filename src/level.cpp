@@ -1,12 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
 #include "../include/level.hpp"
-#include "../include/background.hpp"
-#include "../include/backTexture.hpp"
-#include "../include/label.hpp"
-#include "../include/player.hpp"
-#include "../include/ground.hpp"
-#include "../include/jam.hpp"
 
 using namespace std;
 

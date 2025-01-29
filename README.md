@@ -8,6 +8,8 @@
 
   **Thanks to https://github.com/45P3R4/ for some code review 😉**
 
+All textures and sprites in this project are distribution under CC-BY license. And if you want to use these in your own projects - you must leave "Some sprites and textures was created **by xolatgames**" or something similar!
+
 #### The IDE that used in this project: Code::Block (https://www.codeblocks.org/)
 
 #### The Compilers that used for this game:

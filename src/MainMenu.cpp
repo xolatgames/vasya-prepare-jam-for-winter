@@ -1,6 +1,4 @@
-#include <SFML/Graphics.hpp>
 #include "../include/MainMenu.hpp"
-#include "../include/background.hpp"
 
 MainMenu::MainMenu()
 {

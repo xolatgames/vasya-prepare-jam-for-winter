@@ -1,4 +1,3 @@
-#include <SFML/Graphics.hpp>
 #include "../include/backTexture.hpp"
 
 BackTexture::BackTexture(int id, float x, float y)

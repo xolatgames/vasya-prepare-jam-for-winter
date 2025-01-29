@@ -1,8 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <vector>
 #include "../../include/enemy/turtle.hpp"
-#include "../../include/ground.hpp"
 
 using namespace std;
 

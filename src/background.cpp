@@ -1,7 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
 #include "../include/background.hpp"
-#include "../include/cloud.hpp"
 
 Background::Background()
 {

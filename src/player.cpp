@@ -1,12 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <vector>
 #include "../include/player.hpp"
-#include "../include/ground.hpp"
-#include "../include/jam.hpp"
-#include "../include/enemy/turtle.hpp"
-#include "../include/enemy/rabbit.hpp"
-#include "../include/enemy/bird.hpp"
 
 using namespace std;
 
@@ -50,6 +42,8 @@ Player::Player(float playerX, float playerY)
     jumpTimer = -1;
 
     lose = false;
+
+    immortal_delay = 10;
 }
 
 void Player::Update(vector<Ground*> grounds)
@@ -146,13 +140,15 @@ void Player::Update(vector<Ground*> grounds)
 
         ChangeAnimation();
 
-        if ( sprite.getPosition().y > 900 ) { Lose(); }
+        if ( sprite.getPosition().y > 900 && immortal_delay <= 0 ) { Lose(); }
     }
     else
     {
         speedY += gravityForce;
         sprite.move(sf::Vector2f(0, speedY));
     }
+
+    if (immortal_delay > 0) {immortal_delay -= 1;}
 }
 
 void Player::Input()
@@ -286,7 +282,7 @@ int Player::PickUpJam(vector<Jam*> jams)
 
 int Player::ContactWithTurtle(vector<Turtle*> turtles)
 {
-    if (!lose)
+    if (!lose && immortal_delay <= 0)
     {
         for ( unsigned int i=0; i < turtles.size(); i++ )
         {
@@ -317,27 +313,31 @@ int Player::ContactWithTurtle(vector<Turtle*> turtles)
 
 int Player::ContactWithRabbit(vector<Rabbit*> rabbits)
 {
-    if (!lose)
+    if (!lose && immortal_delay <= 0)
     {
         for ( unsigned int i=0; i < rabbits.size(); i++ )
         {
             Rabbit *rabbit = rabbits.at(i);
 
-            sf::FloatRect rect = mask;
-            rect.top += speedY + 4;
-
-            if (rect.intersects(rabbit->mask))
+            //If you remove checking of the mask size, you get a bug! I don't know how fix this...
+            if ( (rabbit->mask.height <= 128) && (rabbit->mask.width <= 128) )
             {
-                if (rabbit->active)
+                sf::FloatRect rect = mask;
+                rect.top += speedY + 4;
+
+                if (rect.intersects(rabbit->mask))
                 {
-                    if ( (speedY > 0)&&(!mask.intersects(rabbit->mask)) )
+                    if (rabbit->active)
                     {
-                        speedY = -push_from_enemy_force;
-                        jumpSound.play();
-                        jumpNumber = 1;
-                        return i;
+                        if ( (speedY > 0)&&(!mask.intersects(rabbit->mask)) )
+                        {
+                            speedY = -push_from_enemy_force;
+                            jumpSound.play();
+                            jumpNumber = 1;
+                            return i;
+                        }
+                        else { Lose(); }
                     }
-                    else { Lose(); }
                 }
             }
         }
@@ -348,7 +348,7 @@ int Player::ContactWithRabbit(vector<Rabbit*> rabbits)
 
 int Player::ContactWithBird(vector<Bird*> birds)
 {
-    if (!lose)
+    if (!lose && immortal_delay <= 0)
     {
         for ( unsigned int i=0; i < birds.size(); i++ )
         {

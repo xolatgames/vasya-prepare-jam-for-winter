@@ -1,4 +1,3 @@
-#include <SFML/Graphics.hpp>
 #include "../include/ground.hpp"
 
 Ground::Ground(int id, float x, float y)

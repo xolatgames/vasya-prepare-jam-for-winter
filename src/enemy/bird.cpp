@@ -1,7 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include "../../include/enemy/bird.hpp"
-#include "../../include/player.hpp"
 
 Bird::Bird(float x, float y)
 {

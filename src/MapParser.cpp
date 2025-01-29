@@ -1,17 +1,15 @@
-#include <fstream>
-#include <vector>
 #include "../include/MapParser.hpp"
 
 using namespace std;
 
-MapFile::MapFile(string fileName)
+MapParser::MapParser(string fileName)
 {
     file.open(fileName);
     while ( getline(file, line) ) { fileContent.push_back(line); }
     file.close();
 }
 
-int MapFile::FindMapWidth()
+int MapParser::FindMapWidth()
 {
     for ( unsigned int i=0; i < fileContent.size(); i++ )
     {
@@ -30,7 +28,7 @@ int MapFile::FindMapWidth()
     return 0;
 }
 
-int MapFile::FindMapHeight()
+int MapParser::FindMapHeight()
 {
     for ( unsigned int i=0; i < fileContent.size(); i++ )
     {
@@ -49,7 +47,7 @@ int MapFile::FindMapHeight()
     return 0;
 }
 
-vector<string> MapFile::GetTiles(string layer, string lastTile)
+vector<string> MapParser::GetTiles(string layer, string lastTile)
 {
     vector<string> tiles;
     int start_line = 0;
@@ -97,7 +95,7 @@ vector<string> MapFile::GetTiles(string layer, string lastTile)
             {
                 tiles.push_back("Tr");
             }
-            else if ( tile.find("22") != string::npos )
+            else if ( tile.find("11") != string::npos )
             {
                 tiles.push_back("L");
             }

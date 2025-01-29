@@ -1,0 +1,340 @@
+# depslib dependency file v1.0
+1730042034 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/background.cpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"../include/background.hpp"
+	"../include/cloud.hpp"
+
+1730042034 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/background.hpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"cloud.hpp"
+
+1730643356 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/cloud.hpp
+	<SFML/Graphics.hpp>
+
+1730388478 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/backTexture.cpp
+	<SFML/Graphics.hpp>
+	"../include/backTexture.hpp"
+
+1730388458 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/backTexture.hpp
+	<SFML/Graphics.hpp>
+
+1730653872 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/cloud.cpp
+	<SFML/Graphics.hpp>
+	<random>
+	<ctime>
+	"../include/cloud.hpp"
+
+1730642896 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/enemy/bird.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"../../include/enemy/bird.hpp"
+	"../../include/player.hpp"
+
+1730642292 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/enemy/bird.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"../../include/player.hpp"
+
+1730643676 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/player.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"ground.hpp"
+	"jam.hpp"
+	"enemy/turtle.hpp"
+	"enemy/rabbit.hpp"
+	"enemy/bird.hpp"
+
+1730388506 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/ground.hpp
+	<SFML/Graphics.hpp>
+
+1730386904 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/jam.hpp
+	<SFML/Graphics.hpp>
+
+1730642278 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/enemy/turtle.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../player.hpp"
+	"../ground.hpp"
+
+1730643684 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/enemy/rabbit.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../player.hpp"
+	"../ground.hpp"
+
+1730642838 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/enemy/rabbit.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../../include/enemy/rabbit.hpp"
+	"../../include/ground.hpp"
+
+1730642858 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/enemy/turtle.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../../include/enemy/turtle.hpp"
+	"../../include/ground.hpp"
+
+1730654176 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/game.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../include/game.hpp"
+	"../include/MainMenu.hpp"
+	"../include/MapParser.hpp"
+	"../include/level.hpp"
+	"../include/background.hpp"
+	"../include/cloud.hpp"
+	"../include/backTexture.hpp"
+	"../include/player.hpp"
+	"../include/ground.hpp"
+	"../include/jam.hpp"
+
+1730643588 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/game.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"MainMenu.hpp"
+	"MapParser.hpp"
+	"level.hpp"
+	"background.hpp"
+	"cloud.hpp"
+	"backTexture.hpp"
+	"player.hpp"
+	"ground.hpp"
+	"jam.hpp"
+
+1730469110 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/MainMenu.hpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"background.hpp"
+	"jam.hpp"
+	"label.hpp"
+
+1730644654 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/label.hpp
+	<SFML/Graphics.hpp>
+
+1730642202 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/MapParser.hpp
+	<fstream>
+	<vector>
+
+1730644870 /run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/level.hpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"background.hpp"
+	"backTexture.hpp"
+	"label.hpp"
+	"player.hpp"
+	"ground.hpp"
+	"jam.hpp"
+	"enemy/turtle.hpp"
+	"enemy/rabbit.hpp"
+	"enemy/bird.hpp"
+
+1730388500 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/ground.cpp
+	<SFML/Graphics.hpp>
+	"../include/ground.hpp"
+
+1730388232 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/jam.cpp
+	<SFML/Graphics.hpp>
+	"../include/jam.hpp"
+
+1730644646 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/label.cpp
+	<SFML/Graphics.hpp>
+	"../include/label.hpp"
+
+1730654144 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/level.cpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"../include/level.hpp"
+	"../include/background.hpp"
+	"../include/backTexture.hpp"
+	"../include/label.hpp"
+	"../include/player.hpp"
+	"../include/ground.hpp"
+	"../include/jam.hpp"
+
+1730313586 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/main.cpp
+	<SFML/Graphics.hpp>
+	"../include/game.hpp"
+
+1730469548 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/MainMenu.cpp
+	<SFML/Graphics.hpp>
+	"../include/MainMenu.hpp"
+	"../include/background.hpp"
+
+1730650314 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/MapParser.cpp
+	<fstream>
+	<vector>
+	"../include/MapParser.hpp"
+
+1730643866 source:/run/media/ilyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/player.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../include/player.hpp"
+	"../include/ground.hpp"
+	"../include/jam.hpp"
+	"../include/enemy/turtle.hpp"
+	"../include/enemy/rabbit.hpp"
+	"../include/enemy/bird.hpp"
+
+1736586742 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/background.cpp
+	"../include/background.hpp"
+
+1736586738 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/background.hpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"cloud.hpp"
+
+1736586684 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/cloud.hpp
+	<random>
+	<ctime>
+	<SFML/Graphics.hpp>
+
+1736586750 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/backTexture.cpp
+	"../include/backTexture.hpp"
+
+1730377658 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/backTexture.hpp
+	<SFML/Graphics.hpp>
+
+1736586714 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/cloud.cpp
+	"../include/cloud.hpp"
+
+1736586906 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/enemy/bird.cpp
+	"../../include/enemy/bird.hpp"
+
+1730631492 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/enemy/bird.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"../../include/player.hpp"
+
+1730632876 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/player.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"ground.hpp"
+	"jam.hpp"
+	"enemy/turtle.hpp"
+	"enemy/rabbit.hpp"
+	"enemy/bird.hpp"
+
+1730377706 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/ground.hpp
+	<SFML/Graphics.hpp>
+
+1730376104 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/jam.hpp
+	<SFML/Graphics.hpp>
+
+1730631478 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/enemy/turtle.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../player.hpp"
+	"../ground.hpp"
+
+1730632884 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/enemy/rabbit.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"../player.hpp"
+	"../ground.hpp"
+
+1736586916 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/enemy/rabbit.cpp
+	"../../include/enemy/rabbit.hpp"
+
+1736586928 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/enemy/turtle.cpp
+	"../../include/enemy/turtle.hpp"
+
+1736594512 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/game.cpp
+	"../include/game.hpp"
+	"../include/MapsList.hpp"
+
+1736589918 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/game.hpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"MainMenu.hpp"
+	"MapFile.hpp"
+	"level.hpp"
+	"background.hpp"
+	"cloud.hpp"
+	"backTexture.hpp"
+	"player.hpp"
+	"ground.hpp"
+	"jam.hpp"
+
+1730458310 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/MainMenu.hpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"background.hpp"
+	"jam.hpp"
+	"label.hpp"
+
+1730633854 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/label.hpp
+	<SFML/Graphics.hpp>
+
+1736589392 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/MapFile.hpp
+	<fstream>
+	<vector>
+	"MapParser.hpp"
+
+1736589370 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/MapParser.hpp
+	<fstream>
+	<vector>
+
+1736586818 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/level.hpp
+	<SFML/Graphics.hpp>
+	<vector>
+	"background.hpp"
+	"backTexture.hpp"
+	"label.hpp"
+	"player.hpp"
+	"ground.hpp"
+	"jam.hpp"
+	"enemy/turtle.hpp"
+	"enemy/rabbit.hpp"
+	"enemy/bird.hpp"
+
+1736589346 /media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/include/MapsList.hpp
+	<fstream>
+	<vector>
+
+1736586758 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/ground.cpp
+	"../include/ground.hpp"
+
+1736586768 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/jam.cpp
+	"../include/jam.hpp"
+
+1736586774 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/label.cpp
+	"../include/label.hpp"
+
+1736586800 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/level.cpp
+	"../include/level.hpp"
+
+1730302786 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/main.cpp
+	<SFML/Graphics.hpp>
+	"../include/game.hpp"
+
+1736586848 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/MainMenu.cpp
+	"../include/MainMenu.hpp"
+
+1736587386 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/MapFile.cpp
+	"../include/MapFile.hpp"
+
+1736589780 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/MapsList.cpp
+	"../include/MapsList.hpp"
+	<iostream>
+
+1736586894 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/player.cpp
+	"../include/player.hpp"
+
+1736594574 source:/media/plyuha/34A1-1238/GitHub/vasya-prepare-jam-for-winter/src/MapParser.cpp
+	"../include/MapParser.hpp"
+	<iostream>
+

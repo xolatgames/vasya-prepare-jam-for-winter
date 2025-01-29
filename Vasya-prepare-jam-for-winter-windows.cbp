@@ -14,12 +14,12 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-std=c++17" />
-					<Add directory="C:/SFML/include" />
+					<Add directory="C:/SFML-2.6.2/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add option="-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio" />
-					<Add directory="C:/SFML/lib" />
+					<Add directory="C:/SFML-2.6.2/lib" />
 				</Linker>
 			</Target>
 		</Build>
@@ -27,7 +27,9 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="include/MainMenu.hpp" />
+		<Unit filename="include/MapFile.hpp" />
 		<Unit filename="include/MapParser.hpp" />
+		<Unit filename="include/MapsList.hpp" />
 		<Unit filename="include/backTexture.hpp" />
 		<Unit filename="include/background.hpp" />
 		<Unit filename="include/cloud.hpp" />
@@ -40,35 +42,10 @@
 		<Unit filename="include/label.hpp" />
 		<Unit filename="include/level.hpp" />
 		<Unit filename="include/player.hpp" />
-		<Unit filename="png/back/cloud.png" />
-		<Unit filename="png/back/house.png" />
-		<Unit filename="png/back/sun.png" />
-		<Unit filename="png/back/tree.png" />
-		<Unit filename="png/background.png" />
-		<Unit filename="png/enemy/bird1.png" />
-		<Unit filename="png/enemy/bird2.png" />
-		<Unit filename="png/enemy/rabbit1.png" />
-		<Unit filename="png/enemy/rabbit2.png" />
-		<Unit filename="png/enemy/turtle1.png" />
-		<Unit filename="png/enemy/turtle2.png" />
-		<Unit filename="png/ground.png" />
-		<Unit filename="png/ground_top.png" />
-		<Unit filename="png/jam.png" />
-		<Unit filename="png/menu/grabber.png" />
-		<Unit filename="png/menu/grabber_hover.png" />
-		<Unit filename="png/menu/hover_button.png" />
-		<Unit filename="png/menu/label.png" />
-		<Unit filename="png/menu/play.png" />
-		<Unit filename="png/menu/slider.png" />
-		<Unit filename="png/player/fall.png" />
-		<Unit filename="png/player/idle.png" />
-		<Unit filename="png/player/jump.png" />
-		<Unit filename="png/player/lose.png" />
-		<Unit filename="png/player/walk1.png" />
-		<Unit filename="png/player/walk2.png" />
-		<Unit filename="png/text.png" />
 		<Unit filename="src/MainMenu.cpp" />
+		<Unit filename="src/MapFile.cpp" />
 		<Unit filename="src/MapParser.cpp" />
+		<Unit filename="src/MapsList.cpp" />
 		<Unit filename="src/backTexture.cpp" />
 		<Unit filename="src/background.cpp" />
 		<Unit filename="src/cloud.cpp" />

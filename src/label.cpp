@@ -1,4 +1,3 @@
-#include <SFML/Graphics.hpp>
 #include "../include/label.hpp"
 
 Label::Label(string text, float x, float y)

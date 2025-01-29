@@ -1,6 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <random>
-#include <ctime>
 #include "../include/cloud.hpp"
 
 Cloud::Cloud(int rand_seed)

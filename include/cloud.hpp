@@ -1,6 +1,8 @@
 #ifndef CLOUD_H
 #define CLOUD_H
 
+#include <random>
+#include <ctime>
 #include <SFML/Graphics.hpp>
 
 class Cloud

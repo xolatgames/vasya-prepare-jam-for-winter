@@ -6,18 +6,20 @@
 
 using namespace std;
 
-class MapFile
+class MapParser
 {
 public:
-    MapFile(string fileName);
+    MapParser(string fileName);
 
-    ifstream file;
     vector<string> fileContent;
-    string line;
 
     int FindMapWidth();
     int FindMapHeight();
     vector<string> GetTiles(string layer, string lastTile);
+
+private:
+    ifstream file;
+    string line;
 };
 
 #endif // MAP_PARSER_H

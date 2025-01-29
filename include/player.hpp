@@ -83,6 +83,8 @@ public:
     bool lose;
     const float loseHopForce = 12;
 
+    int immortal_delay;
+
 private:
     void Input();
     void Jump();

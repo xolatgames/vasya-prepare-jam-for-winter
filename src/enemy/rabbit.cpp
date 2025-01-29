@@ -1,8 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <vector>
 #include "../../include/enemy/rabbit.hpp"
-#include "../../include/ground.hpp"
 
 Rabbit::Rabbit(float x, float y)
 {
@@ -14,7 +10,6 @@ Rabbit::Rabbit(float x, float y)
     sprite.setOrigin(sf::Vector2f(32, 32));
     sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
     sprite.setPosition(sf::Vector2f(x, y));
-    sprite.setScale(sf::Vector2f(-1, 1));
 
     jumpBuffer.loadFromFile("sound/jump.wav");
     jumpSound.setBuffer(jumpBuffer);

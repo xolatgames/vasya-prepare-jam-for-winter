@@ -1,16 +1,5 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <vector>
 #include "../include/game.hpp"
-#include "../include/MainMenu.hpp"
-#include "../include/MapParser.hpp"
-#include "../include/level.hpp"
-#include "../include/background.hpp"
-#include "../include/cloud.hpp"
-#include "../include/backTexture.hpp"
-#include "../include/player.hpp"
-#include "../include/ground.hpp"
-#include "../include/jam.hpp"
+#include "../include/MapsList.hpp"
 
 using namespace std;
 
@@ -30,6 +19,8 @@ Game::Game(sf::RenderWindow &window)
     test_sound_delay = 0;
 
     cameraX = 0;
+
+    current_level = 0;
 
     while (window.isOpen())
     {
@@ -56,12 +47,15 @@ Game::Game(sf::RenderWindow &window)
 
         window.clear();
 
+        MapsList *maps = new MapsList();
+
         int scene_to = Update(window, scene, menu, level);
-        if ( scene_to != -1 )
+
+        if (scene_to != -1)
         {
             scene = scene_to;
 
-            switch (scene)
+            switch (scene_to)
             {
                 case 0:
                 {
@@ -71,24 +65,43 @@ Game::Game(sf::RenderWindow &window)
 
                 case 1:
                 {
-                    mapFile = new MapFile("maps/level1.tmx");
-
-                    mapWidth = mapFile->FindMapWidth();
-                    mapHeight = mapFile->FindMapHeight();
-
-                    backMap = mapFile->GetTiles("Back", "0");
-                    labelMap = mapFile->GetTiles("Labels", "0");
-                    tileMap = mapFile->GetTiles("Objects", "G");
+                    mapFile = new MapFile(maps->maps.at(current_level), maps->labelsMaps.at(current_level), "G");
 
                     cameraX = 0;
 
-                    level = new Level(backMap, labelMap, tileMap, mapWidth, mapHeight);
+                    level = new Level(mapFile->backMap, mapFile->labelMap, mapFile->tileMap, mapFile->mapWidth, mapFile->mapHeight);
 
-                    (*level).SetLabelText(0, "Press arrow keys for moving character.");
-                    (*level).SetLabelText(1, "You can jump by pressing Space.");
-                    (*level).SetLabelText(2, "You can do this twice!");
-                    (*level).SetLabelText(3, "If you jump on an enemy head, you defeat it.\notherwise you'll lose!");
-                    (*level).SetLabelText(4, "Collect all jams on the level\nfor going to a next level!");
+                    for ( unsigned int i = 0; i < mapFile->labelTexts.size(); i++ )
+                    {
+                        (*level).SetLabelText(i, mapFile->labelTexts.at(i));
+                    }
+                }
+                break;
+
+                case 2:
+                {
+                    if ( maps->maps.size() > current_level+1 )
+                    {
+                        current_level += 1;
+
+                        mapFile = new MapFile(maps->maps.at(current_level), maps->labelsMaps.at(current_level), "G");
+
+                        cameraX = 0;
+
+                        level = new Level(mapFile->backMap, mapFile->labelMap, mapFile->tileMap, mapFile->mapWidth, mapFile->mapHeight);
+
+                        for ( unsigned int i = 0; i < mapFile->labelTexts.size(); i++ )
+                        {
+                            (*level).SetLabelText(i, mapFile->labelTexts.at(i));
+                        }
+
+                        scene = 1;
+                    }
+
+                    else
+                    {
+                        scene = 0;
+                    }
                 }
                 break;
             }
@@ -108,7 +121,7 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
     }
     else if (scene == 0)
     {
-        for ( unsigned int i=0; i < (*menu).background->clouds.size(); i++ )
+        for ( unsigned int i = 0; i < (*menu).background->clouds.size(); i++ )
         {
             (*menu).background->clouds.at(i)->Update();
         }
@@ -148,9 +161,9 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
             window.setMouseCursor(cursor);
         }
     }
-    else
+    else if (scene == 1)
     {
-        for ( unsigned int i=0; i < (*level).background->clouds.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).background->clouds.size(); i++ )
         {
             (*level).background->clouds.at(i)->Update();
         }
@@ -159,21 +172,21 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
         cameraX = (*level).player->Camera();
         (*level).player->SetSoundsVolume(soundsVolume);
 
-        for ( unsigned int i=0; i < (*level).jams.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).jams.size(); i++ )
         {
             (*level).jams.at(i)->Update();
         }
-        for ( unsigned int i=0; i < (*level).turtles.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).turtles.size(); i++ )
         {
             (*level).turtles.at(i)->Update( (*level).player, (*level).grounds );
             (*level).turtles.at(i)->SetSoundsVolume(soundsVolume);
         }
-        for ( unsigned int i=0; i < (*level).rabbits.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).rabbits.size(); i++ )
         {
             (*level).rabbits.at(i)->Update( (*level).player, (*level).grounds );
             (*level).rabbits.at(i)->SetSoundsVolume(soundsVolume);
         }
-        for ( unsigned int i=0; i < (*level).birds.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).birds.size(); i++ )
         {
             (*level).birds.at(i)->Update( (*level).player );
             (*level).birds.at(i)->SetSoundsVolume(soundsVolume);
@@ -183,6 +196,11 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
         if ( pick_up_jam != -1 )
         {
             (*level).jams.erase((*level).jams.begin() + pick_up_jam );
+        }
+
+        if ( (*level).jams.empty() )
+        {
+            return 2;
         }
 
         int contacted_turtle = (*level).player->ContactWithTurtle( (*level).turtles );
@@ -205,7 +223,7 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
 
         if ((*level).player->Restart())
         {
-            return scene;
+            return 1;
         }
     }
 
@@ -220,36 +238,36 @@ void Game::Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *leve
         (*menu).jam->Draw(window, 0);
         (*menu).Draw(window);
     }
-    else
+    else if (scene == 1)
     {
         (*level).background->Draw(window, cameraX);
 
-        for ( unsigned int i=0; i < (*level).backTextures.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).backTextures.size(); i++ )
         {
             (*level).backTextures.at(i)->Draw(window, cameraX);
         }
-        for ( unsigned int i=0; i < (*level).labels.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).labels.size(); i++ )
         {
             (*level).labels.at(i)->Draw(window, cameraX);
         }
 
-        for ( unsigned int i=0; i < (*level).grounds.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).grounds.size(); i++ )
         {
             (*level).grounds.at(i)->Draw(window, cameraX);
         }
-        for ( unsigned int i=0; i < (*level).jams.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).jams.size(); i++ )
         {
             (*level).jams.at(i)->Draw(window, cameraX);
         }
-        for ( unsigned int i=0; i < (*level).turtles.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).turtles.size(); i++ )
         {
             (*level).turtles.at(i)->Draw(window, cameraX);
         }
-        for ( unsigned int i=0; i < (*level).rabbits.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).rabbits.size(); i++ )
         {
             (*level).rabbits.at(i)->Draw(window, cameraX);
         }
-        for ( unsigned int i=0; i < (*level).birds.size(); i++ )
+        for ( unsigned int i = 0; i < (*level).birds.size(); i++ )
         {
             (*level).birds.at(i)->Draw(window, cameraX);
         }
