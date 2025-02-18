@@ -48,7 +48,7 @@ All textures and sprites in this project are distribution under CC-BY license. A
 
   ✔️ Add map parser
 
-  ❌ Create 3 levels at least 🕹️
+  ✔️ Create 3 levels at least 🕹️
 
 #### How to build:
 
