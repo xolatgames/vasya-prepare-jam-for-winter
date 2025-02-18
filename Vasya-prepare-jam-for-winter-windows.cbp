@@ -26,6 +26,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/EndGame.hpp" />
 		<Unit filename="include/MainMenu.hpp" />
 		<Unit filename="include/MapFile.hpp" />
 		<Unit filename="include/MapParser.hpp" />
@@ -42,6 +43,7 @@
 		<Unit filename="include/label.hpp" />
 		<Unit filename="include/level.hpp" />
 		<Unit filename="include/player.hpp" />
+		<Unit filename="src/EndGame.cpp" />
 		<Unit filename="src/MainMenu.cpp" />
 		<Unit filename="src/MapFile.cpp" />
 		<Unit filename="src/MapParser.cpp" />

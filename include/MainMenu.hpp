@@ -4,11 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "background.hpp"
-#include "jam.hpp"
 #include "label.hpp"
 
 class Background;
-class Jam;
 class Label;
 
 class Play
@@ -62,12 +60,11 @@ class MainMenu
 public:
     MainMenu();
 
-    sf::Image labelImage;
-    sf::Texture labelTexture;
-    sf::Sprite labelSprite;
+    sf::Image thumbnailImage;
+    sf::Texture thumbnailTexture;
+    sf::Sprite thumbnailSprite;
 
     Background *background;
-    Jam *jam;
 
     Play *play;
 

@@ -13,6 +13,7 @@
 #include "player.hpp"
 #include "ground.hpp"
 #include "jam.hpp"
+#include "EndGame.hpp"
 
 using namespace std;
 
@@ -39,14 +40,15 @@ public:
     MainMenu *menu;
     MapFile *mapFile;
     Level *level;
+    EndGame *endGame;
 
     float cameraX;
 
     int current_level;
 
 private:
-    int Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level);
-    void Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level);
+    int Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level, EndGame *endGame);
+    void Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level, EndGame *endGame);
 };
 
 #endif // GAME_H

@@ -3,10 +3,6 @@
 MainMenu::MainMenu()
 {
     background = new Background();
-    jam = new Jam(992, 96);
-    (*jam).sprite.setOrigin(64, 64);
-    (*jam).sprite.setScale(sf::Vector2f(0.5, 0.5));
-    (*jam).sprite.setRotation(45);
 
     play = new Play();
 
@@ -24,14 +20,14 @@ MainMenu::MainMenu()
 
 void MainMenu::Draw(sf::RenderWindow &window)
 {
-    labelImage.loadFromFile("png/menu/label.png");
-    labelTexture.loadFromImage(labelImage);
-    labelSprite.setTexture(labelTexture);
-    labelSprite.setOrigin(320, 128);
-    labelSprite.setTextureRect(sf::IntRect(0, 0, 640, 256));
-    labelSprite.setPosition(sf::Vector2f(640, 128));
+    thumbnailImage.loadFromFile("png/menu/thumbnail.png");
+    thumbnailTexture.loadFromImage(thumbnailImage);
+    thumbnailSprite.setTexture(thumbnailTexture);
+    thumbnailSprite.setOrigin(640, 400);
+    thumbnailSprite.setTextureRect(sf::IntRect(0, 0, 1280, 800));
+    thumbnailSprite.setPosition(sf::Vector2f(640, 400));
 
-    window.draw(labelSprite);
+    window.draw(thumbnailSprite);
     window.draw((*play).playSprite);
     window.draw((*play).hoverSprite);
 

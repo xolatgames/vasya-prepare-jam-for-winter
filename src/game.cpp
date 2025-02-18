@@ -49,7 +49,7 @@ Game::Game(sf::RenderWindow &window)
 
         MapsList *maps = new MapsList();
 
-        int scene_to = Update(window, scene, menu, level);
+        int scene_to = Update(window, scene, menu, level, endGame);
 
         if (scene_to != -1)
         {
@@ -100,25 +100,27 @@ Game::Game(sf::RenderWindow &window)
 
                     else
                     {
-                        scene = 0;
+                        endGame = new EndGame();
+                        scene = 3;
                     }
                 }
                 break;
             }
         }
 
-        Draw(window, scene, menu, level);
+        Draw(window, scene, menu, level, endGame);
 
         window.display();
     }
 }
 
-int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level)
+int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level, EndGame *endGame)
 {
     if (scene == -1)
     {
         return 0;
     }
+
     else if (scene == 0)
     {
         for ( unsigned int i = 0; i < (*menu).background->clouds.size(); i++ )
@@ -161,6 +163,7 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
             window.setMouseCursor(cursor);
         }
     }
+
     else if (scene == 1)
     {
         for ( unsigned int i = 0; i < (*level).background->clouds.size(); i++ )
@@ -227,17 +230,25 @@ int Game::Update(sf::RenderWindow &window, int scene, MainMenu *menu, Level *lev
         }
     }
 
+    else if (scene == 3)
+    {
+        for ( unsigned int i = 0; i < (*endGame).background->clouds.size(); i++ )
+        {
+            (*endGame).background->clouds.at(i)->Update();
+        }
+    }
+
     return -1;
 }
 
-void Game::Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level)
+void Game::Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *level, EndGame *endGame)
 {
     if (scene == 0)
     {
         (*menu).background->Draw(window, 0);
-        (*menu).jam->Draw(window, 0);
         (*menu).Draw(window);
     }
+
     else if (scene == 1)
     {
         (*level).background->Draw(window, cameraX);
@@ -275,5 +286,11 @@ void Game::Draw(sf::RenderWindow &window, int scene, MainMenu *menu, Level *leve
         (*level).player->Draw(window, cameraX);
 
         (*level).UI(window);
+    }
+
+    else if (scene == 3)
+    {
+        (*endGame).background->Draw(window, 0);
+        (*endGame).Draw(window);
     }
 }
